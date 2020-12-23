@@ -43,7 +43,7 @@ namespace WPFCalculator
             TextOutput.Text = text.ToString();
         }
 
-        private void Button_Number(object sender, RoutedEventArgs e)
+        private void Button_Number_Click(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
             double number = Convert.ToDouble(button.Content.ToString());
@@ -51,7 +51,7 @@ namespace WPFCalculator
             SetOutputText(_input);
         }
 
-        private void Button_Operation(object sender, RoutedEventArgs e)
+        private void Button_Operation_Click(object sender, RoutedEventArgs e)
         {
             _listHistory.Add(_input);
 
@@ -106,12 +106,12 @@ namespace WPFCalculator
             }
         }
 
-        private void Button_ClearAll(object sender, RoutedEventArgs e)
+        private void Button_ClearAll_Click(object sender, RoutedEventArgs e)
         {
             ResetAll();
         }
 
-        private void Button_ClearEntry(object sender, RoutedEventArgs e)
+        private void Button_ClearEntry_Click(object sender, RoutedEventArgs e)
         {
             _input = 0;
         }

@@ -24,31 +24,31 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Button x:Name="ButtonPositiveNegative" Grid.Row="5" Grid.Column="0" FontWeight="Bold" Click="Button_Number">+/-</Button>
-        <Button x:Name="Button0" Grid.Row="5" Grid.Column="1" FontWeight="Bold" Click="Button_Number">0</Button>
-        <Button x:Name="ButtonDecimal" Grid.Row="5" Grid.Column="2" FontWeight="Bold" Click="Button_Number">.</Button>
+        <Button x:Name="ButtonPositiveNegative" Grid.Row="5" Grid.Column="0" FontWeight="Bold" Click="Button_Number_Click">+/-</Button>
+        <Button x:Name="Button0" Grid.Row="5" Grid.Column="1" FontWeight="Bold" Click="Button_Number_Click">0</Button>
+        <Button x:Name="ButtonDecimal" Grid.Row="5" Grid.Column="2" FontWeight="Bold" Click="Button_Number_Click">.</Button>
         
-        <Button x:Name="Button1" Grid.Row="4" Grid.Column="0" FontWeight="Bold" Click="Button_Number">1</Button>
-        <Button x:Name="Button2" Grid.Row="4" Grid.Column="1" FontWeight="Bold" Click="Button_Number">2</Button>
-        <Button x:Name="Button3" Grid.Row="4" Grid.Column="2" FontWeight="Bold" Click="Button_Number">3</Button>
+        <Button x:Name="Button1" Grid.Row="4" Grid.Column="0" FontWeight="Bold" Click="Button_Number_Click">1</Button>
+        <Button x:Name="Button2" Grid.Row="4" Grid.Column="1" FontWeight="Bold" Click="Button_Number_Click">2</Button>
+        <Button x:Name="Button3" Grid.Row="4" Grid.Column="2" FontWeight="Bold" Click="Button_Number_Click">3</Button>
 
-        <Button x:Name="Button4" Grid.Row="3" Grid.Column="0" FontWeight="Bold" Click="Button_Number">4</Button>
-        <Button x:Name="Button5" Grid.Row="3" Grid.Column="1" FontWeight="Bold" Click="Button_Number">5</Button>
-        <Button x:Name="Button6" Grid.Row="3" Grid.Column="2" FontWeight="Bold" Click="Button_Number">6</Button>
+        <Button x:Name="Button4" Grid.Row="3" Grid.Column="0" FontWeight="Bold" Click="Button_Number_Click">4</Button>
+        <Button x:Name="Button5" Grid.Row="3" Grid.Column="1" FontWeight="Bold" Click="Button_Number_Click">5</Button>
+        <Button x:Name="Button6" Grid.Row="3" Grid.Column="2" FontWeight="Bold" Click="Button_Number_Click">6</Button>
 
-        <Button x:Name="Button7" Grid.Row="2" Grid.Column="0" FontWeight="Bold" Click="Button_Number">7</Button>
-        <Button x:Name="Button8" Grid.Row="2" Grid.Column="1" FontWeight="Bold" Click="Button_Number">8</Button>
-        <Button x:Name="Button9" Grid.Row="2" Grid.Column="2" FontWeight="Bold" Click="Button_Number">9</Button>
+        <Button x:Name="Button7" Grid.Row="2" Grid.Column="0" FontWeight="Bold" Click="Button_Number_Click">7</Button>
+        <Button x:Name="Button8" Grid.Row="2" Grid.Column="1" FontWeight="Bold" Click="Button_Number_Click">8</Button>
+        <Button x:Name="Button9" Grid.Row="2" Grid.Column="2" FontWeight="Bold" Click="Button_Number_Click">9</Button>
 
-        <Button x:Name="ButtonDivide" Grid.Row="1" Grid.Column="3" FontWeight="Bold" Click="Button_Operation">/</Button>
-        <Button x:Name="ButtonMultiply" Grid.Row="2" Grid.Column="3" FontWeight="Bold" Click="Button_Operation">*</Button>
-        <Button x:Name="ButtonSubtract" Grid.Row="3" Grid.Column="3" FontWeight="Bold" Click="Button_Operation">-</Button>
-        <Button x:Name="ButtonAddition" Grid.Row="4" Grid.Column="3" FontWeight="Bold" Click="Button_Operation">+</Button>
-        <Button x:Name="ButtonEquals" Grid.Row="5" Grid.Column="3" FontWeight="Bold" Click="Button_Operation">=</Button>
+        <Button x:Name="ButtonDivide" Grid.Row="1" Grid.Column="3" FontWeight="Bold" Click="Button_Operation_Click">/</Button>
+        <Button x:Name="ButtonMultiply" Grid.Row="2" Grid.Column="3" FontWeight="Bold" Click="Button_Operation_Click">*</Button>
+        <Button x:Name="ButtonSubtract" Grid.Row="3" Grid.Column="3" FontWeight="Bold" Click="Button_Operation_Click">-</Button>
+        <Button x:Name="ButtonAddition" Grid.Row="4" Grid.Column="3" FontWeight="Bold" Click="Button_Operation_Click">+</Button>
+        <Button x:Name="ButtonEquals" Grid.Row="5" Grid.Column="3" FontWeight="Bold" Click="Button_Operation_Click">=</Button>
 
-        <Button x:Name="ButtonClearAll" Grid.Row="1" Grid.Column="0" FontWeight="Bold" Click="Button_ClearAll">C</Button>
-        <Button x:Name="ButtonClearEntry" Grid.Row="1" Grid.Column="1" FontWeight="Bold" Click="Button_ClearEntry">CE</Button>
-        <Button x:Name="ButtonBackspace" Grid.Row="1" Grid.Column="2" FontWeight="Bold" Click="Button_Number">DEL</Button>
+        <Button x:Name="ButtonClearAll" Grid.Row="1" Grid.Column="0" FontWeight="Bold" Click="Button_ClearAll_Click">C</Button>
+        <Button x:Name="ButtonClearEntry" Grid.Row="1" Grid.Column="1" FontWeight="Bold" Click="Button_ClearEntry_Click">CE</Button>
+        <Button x:Name="ButtonBackspace" Grid.Row="1" Grid.Column="2" FontWeight="Bold" Click="Button_Number_Click">DEL</Button>
 
         <TextBox x:Name="TextOutput" IsReadOnly="true"
                  TextAlignment="right" VerticalAlignment="Bottom"
