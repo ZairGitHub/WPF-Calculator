@@ -99,7 +99,7 @@ namespace WPFCalculator
                             }
                         }
                     }
-                    _input = _sum;
+                    _input = 0;
                     _listHistory.Clear();
                     SetOutputText(_sum);
                 }
