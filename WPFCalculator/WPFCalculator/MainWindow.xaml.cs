@@ -40,7 +40,7 @@ namespace WPFCalculator
             TextOutput.Text = text;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Number(object sender, RoutedEventArgs e)
         {
             double result;
             Button button = (Button)sender;
