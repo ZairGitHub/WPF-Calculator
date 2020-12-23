@@ -62,5 +62,27 @@ namespace CalculatorTests
 
             Assert.That(result, Is.EqualTo(a / b));
         }
+
+        [Test]
+        public void Modulo_BIsZero_ThrowsDivideByZeroException()
+        {
+            double a = It.IsAny<int>();
+            double b = 0;
+
+            Assert.That(() => Calculator.Modulo(a, b),
+                Throws.Exception.TypeOf<DivideByZeroException>()
+                .With.Message.EqualTo("Cannot divide by zero"));
+        }
+
+        [TestCase(-1)]
+        [TestCase(1)]
+        public void Modulo_BIsNotZero_ReturnsAModuloB(int b)
+        {
+            double a = It.IsAny<int>();
+
+            var result = Calculator.Modulo(a, b);
+
+            Assert.That(result, Is.EqualTo(a % b));
+        }
     }
 }

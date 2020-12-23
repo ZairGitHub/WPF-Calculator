@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CalculatorApp\CalculatorApp.csproj" />
-    <ProjectReference Include="..\Calculator\CalculatorApp.csproj" />
   </ItemGroup>
 
 </Project>
