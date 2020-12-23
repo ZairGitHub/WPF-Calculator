@@ -17,15 +17,52 @@ namespace WPFCalculator
 {
     public partial class MainWindow : Window
     {
+        private double _number1;
+        private double _number2;
+        string _operation;
+
         public MainWindow()
         {
             InitializeComponent();
+            ResetAll();
+        }
+
+        private void ResetAll()
+        {
+            _number1 = 0;
+            _number2 = 0;
+            _operation = null;
+            TextOutput.Text = "0";
+        }
+
+        private void SetOutputText(string text)
+        {
+            TextOutput.Text = text;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            double result;
             Button button = (Button)sender;
-            TextOutput.Text = button.Content.ToString();
+            if (double.TryParse(button.Content.ToString(), out result))
+            {
+                if (_operation == null)
+                {
+                    _number1 = (_number1 * 10) + result;
+                }
+                else
+                {
+                    _operation = null;
+                    _number2 = _number1;
+                    _number1 = (_number1 * 10) + result;
+                }
+                SetOutputText(_number1.ToString());
+            }
+        }
+
+        private void Button_Clear(object sender, RoutedEventArgs e)
+        {
+            ResetAll();
         }
     }
 }

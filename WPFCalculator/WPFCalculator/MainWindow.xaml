@@ -46,7 +46,7 @@
         <Button x:Name="ButtonAddition" Grid.Row="4" Grid.Column="3" FontWeight="Bold" Click="Button_Click">+</Button>
         <Button x:Name="ButtonEquals" Grid.Row="5" Grid.Column="3" FontWeight="Bold" Click="Button_Click">=</Button>
 
-        <Button x:Name="ButtonClearAll" Grid.Row="1" Grid.Column="0" FontWeight="Bold" Click="Button_Click">C</Button>
+        <Button x:Name="ButtonClearAll" Grid.Row="1" Grid.Column="0" FontWeight="Bold" Click="Button_Clear">C</Button>
         <Button x:Name="ButtonClearEntry" Grid.Row="1" Grid.Column="1" FontWeight="Bold" Click="Button_Click">CE</Button>
         <Button x:Name="ButtonBackspace" Grid.Row="1" Grid.Column="2" FontWeight="Bold" Click="Button_Click">DEL</Button>
 
