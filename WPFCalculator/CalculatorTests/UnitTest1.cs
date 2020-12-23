@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using CalculatorApp;
 
 namespace CalculatorTests
 {
@@ -7,6 +8,7 @@ namespace CalculatorTests
         [SetUp]
         public void Setup()
         {
+            
         }
 
         [Test]

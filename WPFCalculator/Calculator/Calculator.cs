@@ -1,9 +1,9 @@
 ﻿using System;
 
-namespace Calculator
+namespace CalculatorApp
 {
-    public class Calculator
-    {
+    public static class Calculator
+    {        
         public static int Main() => 0;
     }
 }
