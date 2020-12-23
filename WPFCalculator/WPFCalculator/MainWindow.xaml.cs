@@ -17,8 +17,10 @@ namespace WPFCalculator
 {
     public partial class MainWindow : Window
     {
-        private double _number1;
-        private double _number2;
+        private readonly List<object> _listHistory = new List<object>();
+
+        private double _input;
+        private double _sum;
         string _operation;
 
         public MainWindow()
@@ -29,10 +31,11 @@ namespace WPFCalculator
 
         private void ResetAll()
         {
-            _number1 = 0;
-            _number2 = 0;
+            _listHistory.Clear();
+            _input = 0;
+            _sum = 0;
             _operation = string.Empty;
-            SetOutputText(_number1);
+            SetOutputText(_input);
         }
 
         private void SetOutputText<T>(T text)
@@ -43,46 +46,60 @@ namespace WPFCalculator
         private void Button_Number(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
-            if (double.TryParse(button.Content.ToString(), out double result))
-            {
-                if (_operation == string.Empty)
-                {
-                    _number1 = (_number1 * 10) + result;
-                }
-                else
-                {
-                    _operation = string.Empty;
-                    _number2 = _number1;
-                    _number1 = (_number1 * 10) + result;
-                }
-                SetOutputText(_number1);
-            }
+            double number = Convert.ToDouble(button.Content.ToString());
+            _input = (_input * 10) + number;
+            SetOutputText(_input);
         }
 
         private void Button_Operation(object sender, RoutedEventArgs e)
         {
+            _listHistory.Add(_input);
+
             Button button = (Button)sender;
             _operation = button.Content.ToString();
-            switch (_operation)
+            if (_operation != "=")
             {
-                case "+":
-                    _number2 += _number1;
-                    break;
-                case "-":
-                    _number2 -= _number1;
-                    break;
-                case "*":
-                    SetOutputText(_operation);
-                    break;
-                case "/":
-                    SetOutputText(_operation);
-                    break;
-                case "=":
-                    break;
+                _listHistory.Add(_operation);
+
+                _input = 0;
+                _operation = string.Empty;
+                SetOutputText(_input);
+
             }
-            _number1 = 0;
-            _operation = string.Empty;
-            SetOutputText(_number2);
+            else
+            {
+                if (_listHistory.Count < 3)
+                {
+                    _sum = 0;
+                }
+                else
+                {
+                    _sum = Convert.ToDouble(_listHistory[0]);
+
+                    double number;
+                    string operation = null;
+                    for (int i = 1; i < _listHistory.Count; i++)
+                    {
+                        if (i % 2 != 0)
+                        {
+                            operation = Convert.ToString(_listHistory[i]);
+                        }
+                        else
+                        {
+                            number = Convert.ToDouble(_listHistory[i]);
+
+                            switch (operation)
+                            {
+                                case "+":
+                                    _sum += number;
+                                    break;
+                            }
+                        }
+                    }
+                    _listHistory.Clear();
+                    SetOutputText(_sum);
+                }
+            }
         }
 
         private void Button_Clear(object sender, RoutedEventArgs e)
