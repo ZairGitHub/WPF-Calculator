@@ -48,7 +48,7 @@
 
         <Button x:Name="ButtonClearAll" Grid.Row="1" Grid.Column="0" FontWeight="Bold" Click="Button_ClearAll_Click">C</Button>
         <Button x:Name="ButtonClearEntry" Grid.Row="1" Grid.Column="1" FontWeight="Bold" Click="Button_ClearEntry_Click">CE</Button>
-        <Button x:Name="ButtonBackspace" Grid.Row="1" Grid.Column="2" FontWeight="Bold" Click="Button_Number_Click">DEL</Button>
+        <Button x:Name="ButtonBackspace" Grid.Row="1" Grid.Column="2" FontWeight="Bold" Click="Button_Backspace_Click">DEL</Button>
 
         <TextBox x:Name="TextOutput" IsReadOnly="true"
                  TextAlignment="right" VerticalAlignment="Bottom"

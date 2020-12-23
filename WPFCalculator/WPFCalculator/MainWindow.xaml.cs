@@ -119,6 +119,18 @@ namespace WPFCalculator
         private void Button_ClearEntry_Click(object sender, RoutedEventArgs e)
         {
             _input = 0;
+            SetOutputText(_input);
+        }
+
+        private void Button_Backspace_Click(object sender, RoutedEventArgs e)
+        {
+            string inputString = _input.ToString();
+            if (inputString.Length > 1)
+            {
+                inputString = inputString.Substring(0, inputString.Length - 1);
+                _input = Convert.ToDouble(inputString);
+                SetOutputText(_input);
+            }
         }
     }
 }
