@@ -132,5 +132,11 @@ namespace WPFCalculator
                 SetOutputText(_input);
             }
         }
+
+        private void Button_SignChange_Click(object sender, RoutedEventArgs e)
+        {
+            _input = -_input;
+            SetOutputText(_input);
+        }
     }
 }

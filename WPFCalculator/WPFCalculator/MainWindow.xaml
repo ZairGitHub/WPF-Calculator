@@ -24,7 +24,7 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Button x:Name="ButtonPositiveNegative" Grid.Row="5" Grid.Column="0" FontWeight="Bold" Click="Button_Number_Click">+/-</Button>
+        <Button x:Name="ButtonSignChange" Grid.Row="5" Grid.Column="0" FontWeight="Bold" Click="Button_SignChange_Click">+/-</Button>
         <Button x:Name="Button0" Grid.Row="5" Grid.Column="1" FontWeight="Bold" Click="Button_Number_Click">0</Button>
         <Button x:Name="ButtonDecimal" Grid.Row="5" Grid.Column="2" FontWeight="Bold" Click="Button_Number_Click">.</Button>
         
