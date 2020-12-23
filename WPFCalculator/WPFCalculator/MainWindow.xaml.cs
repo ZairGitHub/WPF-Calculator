@@ -26,10 +26,10 @@ namespace WPFCalculator
         public MainWindow()
         {
             InitializeComponent();
-            ResetAll();
+            ClearAll();
         }
 
-        private void ResetAll()
+        private void ClearAll()
         {
             _listHistory.Clear();
             _input = 0;
@@ -64,7 +64,6 @@ namespace WPFCalculator
                 _input = 0;
                 _operation = string.Empty;
                 SetOutputText(_input);
-
             }
             else
             {
@@ -96,6 +95,12 @@ namespace WPFCalculator
                                 case "-":
                                     _sum -= number;
                                     break;
+                                case "*":
+                                    _sum *= number;
+                                    break;
+                                case "/":
+                                    _sum /= number;
+                                    break;
                             }
                         }
                     }
@@ -108,7 +113,7 @@ namespace WPFCalculator
 
         private void Button_ClearAll_Click(object sender, RoutedEventArgs e)
         {
-            ResetAll();
+            ClearAll();
         }
 
         private void Button_ClearEntry_Click(object sender, RoutedEventArgs e)
