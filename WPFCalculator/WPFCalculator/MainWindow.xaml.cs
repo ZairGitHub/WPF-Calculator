@@ -31,28 +31,27 @@ namespace WPFCalculator
         {
             _number1 = 0;
             _number2 = 0;
-            _operation = null;
+            _operation = string.Empty;
             TextOutput.Text = "0";
         }
 
-        private void SetOutputText(string text)
+        private void SetOutputText<T>(T text)
         {
-            TextOutput.Text = text;
+            TextOutput.Text = text.ToString();
         }
 
         private void Button_Number(object sender, RoutedEventArgs e)
         {
-            double result;
             Button button = (Button)sender;
-            if (double.TryParse(button.Content.ToString(), out result))
+            if (double.TryParse(button.Content.ToString(), out double result))
             {
-                if (_operation == null)
+                if (_operation == string.Empty)
                 {
                     _number1 = (_number1 * 10) + result;
                 }
                 else
                 {
-                    _operation = null;
+                    _operation = string.Empty;
                     _number2 = _number1;
                     _number1 = (_number1 * 10) + result;
                 }
@@ -67,7 +66,8 @@ namespace WPFCalculator
             switch (_operation)
             {
                 case "+":
-                    SetOutputText(_operation);
+                    _number2 += _number1;
+                    SetOutputText(_number2);
                     break;
                 case "-":
                     SetOutputText(_operation);
@@ -79,7 +79,8 @@ namespace WPFCalculator
                     SetOutputText(_operation);
                     break;
             }
-            _operation = null;
+            _number1 = 0;
+            _operation = string.Empty;
         }
 
         private void Button_Clear(object sender, RoutedEventArgs e)
