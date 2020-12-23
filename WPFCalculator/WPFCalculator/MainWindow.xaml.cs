@@ -93,9 +93,13 @@ namespace WPFCalculator
                                 case "+":
                                     _sum += number;
                                     break;
+                                case "-":
+                                    _sum -= number;
+                                    break;
                             }
                         }
                     }
+                    _input = _sum;
                     _listHistory.Clear();
                     SetOutputText(_sum);
                 }
