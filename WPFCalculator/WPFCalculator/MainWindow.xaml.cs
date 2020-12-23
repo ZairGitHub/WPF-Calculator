@@ -32,7 +32,7 @@ namespace WPFCalculator
             _number1 = 0;
             _number2 = 0;
             _operation = string.Empty;
-            TextOutput.Text = "0";
+            SetOutputText(_number1);
         }
 
         private void SetOutputText<T>(T text)
@@ -55,11 +55,11 @@ namespace WPFCalculator
                     _number2 = _number1;
                     _number1 = (_number1 * 10) + result;
                 }
-                SetOutputText(_number1.ToString());
+                SetOutputText(_number1);
             }
         }
 
-        private void Button_Operation(Object sender, RoutedEventArgs e)
+        private void Button_Operation(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
             _operation = button.Content.ToString();
@@ -67,10 +67,9 @@ namespace WPFCalculator
             {
                 case "+":
                     _number2 += _number1;
-                    SetOutputText(_number2);
                     break;
                 case "-":
-                    SetOutputText(_operation);
+                    _number2 -= _number1;
                     break;
                 case "*":
                     SetOutputText(_operation);
@@ -78,9 +77,12 @@ namespace WPFCalculator
                 case "/":
                     SetOutputText(_operation);
                     break;
+                case "=":
+                    break;
             }
             _number1 = 0;
             _operation = string.Empty;
+            SetOutputText(_number2);
         }
 
         private void Button_Clear(object sender, RoutedEventArgs e)
