@@ -5,9 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFCalculator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="388,197,0,0" VerticalAlignment="Top"/>
+        Title="CalculatorApp" Height="300" Width="200">
 
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Button x:Name="ButtonPositiveNegative" Grid.Row="5" Grid.Column="0" FontWeight="Bold" Click="Button_Click">+/-</Button>
+        <Button x:Name="Button0" Grid.Row="5" Grid.Column="1" FontWeight="Bold" Click="Button_Click">0</Button>
+        <Button x:Name="ButtonDecimal" Grid.Row="5" Grid.Column="2" FontWeight="Bold" Click="Button_Click">.</Button>
+        
+        <Button x:Name="Button1" Grid.Row="4" Grid.Column="0" FontWeight="Bold" Click="Button_Click">1</Button>
+        <Button x:Name="Button2" Grid.Row="4" Grid.Column="1" FontWeight="Bold" Click="Button_Click">2</Button>
+        <Button x:Name="Button3" Grid.Row="4" Grid.Column="2" FontWeight="Bold" Click="Button_Click">3</Button>
+
+        <Button x:Name="Button4" Grid.Row="3" Grid.Column="0" FontWeight="Bold" Click="Button_Click">4</Button>
+        <Button x:Name="Button5" Grid.Row="3" Grid.Column="1" FontWeight="Bold" Click="Button_Click">5</Button>
+        <Button x:Name="Button6" Grid.Row="3" Grid.Column="2" FontWeight="Bold" Click="Button_Click">6</Button>
+
+        <Button x:Name="Button7" Grid.Row="2" Grid.Column="0" FontWeight="Bold" Click="Button_Click">7</Button>
+        <Button x:Name="Button8" Grid.Row="2" Grid.Column="1" FontWeight="Bold" Click="Button_Click">8</Button>
+        <Button x:Name="Button9" Grid.Row="2" Grid.Column="2" FontWeight="Bold" Click="Button_Click">9</Button>
     </Grid>
 </Window>
