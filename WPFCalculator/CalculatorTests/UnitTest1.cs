@@ -14,7 +14,9 @@ namespace CalculatorTests
         [Test]
         public void Test1()
         {
-            Assert.Pass();
+            var result = Calculator.Add(1, 2);
+
+            Assert.That(result, Is.EqualTo(3));
         }
     }
 }

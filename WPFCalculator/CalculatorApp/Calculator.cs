@@ -3,7 +3,9 @@
 namespace CalculatorApp
 {
     public static class Calculator
-    {        
-        public static int Main() => 0;
+    {
+        public static double Add(int a, int b) => a + b;
+
+        public static void Main() { }
     }
 }
