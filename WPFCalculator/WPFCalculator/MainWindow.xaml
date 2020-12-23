@@ -39,5 +39,11 @@
         <Button x:Name="Button7" Grid.Row="2" Grid.Column="0" FontWeight="Bold" Click="Button_Click">7</Button>
         <Button x:Name="Button8" Grid.Row="2" Grid.Column="1" FontWeight="Bold" Click="Button_Click">8</Button>
         <Button x:Name="Button9" Grid.Row="2" Grid.Column="2" FontWeight="Bold" Click="Button_Click">9</Button>
+
+        <Button x:Name="ButtonDivide" Grid.Row="1" Grid.Column="3" FontWeight="Bold" Click="Button_Click">/</Button>
+        <Button x:Name="ButtonMultiply" Grid.Row="2" Grid.Column="3" FontWeight="Bold" Click="Button_Click">x</Button>
+        <Button x:Name="ButtonSubtract" Grid.Row="3" Grid.Column="3" FontWeight="Bold" Click="Button_Click">-</Button>
+        <Button x:Name="ButtonAddition" Grid.Row="4" Grid.Column="3" FontWeight="Bold" Click="Button_Click">+</Button>
+        <Button x:Name="ButtonEquals" Grid.Row="5" Grid.Column="3" FontWeight="Bold" Click="Button_Click">=</Button>
     </Grid>
 </Window>
