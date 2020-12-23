@@ -106,9 +106,14 @@ namespace WPFCalculator
             }
         }
 
-        private void Button_Clear(object sender, RoutedEventArgs e)
+        private void Button_ClearAll(object sender, RoutedEventArgs e)
         {
             ResetAll();
+        }
+
+        private void Button_ClearEntry(object sender, RoutedEventArgs e)
+        {
+            _input = 0;
         }
     }
 }
