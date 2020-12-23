@@ -60,6 +60,12 @@ namespace WPFCalculator
             }
         }
 
+        private void Button_Operation(Object sender, RoutedEventArgs e)
+        {
+            Button button = (Button)sender;
+            SetOutputText(button.Content.ToString());
+        }
+
         private void Button_Clear(object sender, RoutedEventArgs e)
         {
             ResetAll();
