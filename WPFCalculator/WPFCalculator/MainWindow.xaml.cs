@@ -63,7 +63,23 @@ namespace WPFCalculator
         private void Button_Operation(Object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
-            SetOutputText(button.Content.ToString());
+            _operation = button.Content.ToString();
+            switch (_operation)
+            {
+                case "+":
+                    SetOutputText(_operation);
+                    break;
+                case "-":
+                    SetOutputText(_operation);
+                    break;
+                case "*":
+                    SetOutputText(_operation);
+                    break;
+                case "/":
+                    SetOutputText(_operation);
+                    break;
+            }
+            _operation = null;
         }
 
         private void Button_Clear(object sender, RoutedEventArgs e)
