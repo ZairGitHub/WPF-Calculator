@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFCalculator"
         mc:Ignorable="d"
-        Title="CalculatorApp" Height="300" Width="200">
+        Title="CalculatorApp" Height="300" Width="250">
 
     <Grid>
         <Grid.RowDefinitions>

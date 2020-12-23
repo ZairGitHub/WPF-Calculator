@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace WPFCalculator
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -27,7 +24,8 @@ namespace WPFCalculator
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            Button button = (Button)sender;
+            TextOutput.Text = button.Content.ToString();
         }
     }
 }
