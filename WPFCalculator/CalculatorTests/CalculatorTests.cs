@@ -41,14 +41,13 @@ namespace CalculatorTests
         }
 
         [Fact]
-        public void Divide_BIsZero_ThrowsDivideByZeroException()
+        public void Divide_BIsZero_ThrowsDivideByZeroExceptionWithCustomMessage()
         {
             double a = It.IsAny<int>();
             double b = 0;
+            var ex = Assert.Throws<DivideByZeroException>(() => Calculator.Divide(a, b));
 
-            Assert.Throws<DivideByZeroException>(() => Calculator.Divide(a, b));
-            //Exception.TypeOf<DivideByZeroException>()
-            //.With.Message.EqualTo("Cannot divide by zero"))
+            Assert.Equal("Cannot divide by zero", ex.Message);
         }
 
         [Theory]
@@ -64,14 +63,13 @@ namespace CalculatorTests
         }
 
         [Fact]
-        public void Modulo_BIsZero_ThrowsDivideByZeroException()
+        public void Modulo_BIsZero_ThrowsDivideByZeroExceptionWithCustomMessage()
         {
             double a = It.IsAny<int>();
             double b = 0;
+            var ex = Assert.Throws<DivideByZeroException>(() => Calculator.Modulo(a, b));
 
-            Assert.Throws<DivideByZeroException>(() => Calculator.Modulo(a, b));
-                //Throws.Exception.TypeOf<DivideByZeroException>()
-                //.With.Message.EqualTo("Cannot divide by zero"));
+            Assert.Equal("Cannot divide by zero", ex.Message);
         }
 
         [Theory]
