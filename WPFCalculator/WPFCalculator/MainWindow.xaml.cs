@@ -35,19 +35,20 @@ namespace WPFCalculator
             _listHistory.Clear();
             _input = 0;
             _sum = 0;
+
+            SetInputText();
             ClearOperation();
-            SetOutputText(_input);
             ClearHistoryText();
+        }
+
+        private void SetInputText()
+        {
+            TextOutput.Text = _input.ToString();
         }
 
         private void ClearOperation()
         {
             _operation = null;
-        }
-
-        private void SetOutputText<T>(T text)
-        {
-            TextOutput.Text = text.ToString();
         }
 
         private void ClearHistoryText()
@@ -86,7 +87,7 @@ namespace WPFCalculator
                 PrepareNewEquationEnvironment(number);
             }
             _input = (_input * 10) + number;
-            SetOutputText(_input);
+            SetInputText();
         }
 
         private void Button_Operation_Click(object sender, RoutedEventArgs e)
@@ -104,7 +105,7 @@ namespace WPFCalculator
             {
                 _input = 0;
                 ClearOperation();
-                SetOutputText(_input);
+                SetInputText();
             }
             else
             {
@@ -147,7 +148,7 @@ namespace WPFCalculator
                     }
                     _isNewEquation = true;
                     _input = _sum;
-                    SetOutputText(_input);
+                    SetInputText();
                 }
             }
         }
@@ -160,7 +161,7 @@ namespace WPFCalculator
         private void Button_ClearEntry_Click(object sender, RoutedEventArgs e)
         {
             _input = 0;
-            SetOutputText(_input);
+            SetInputText();
         }
 
         private void Button_Backspace_Click(object sender, RoutedEventArgs e)
@@ -175,13 +176,13 @@ namespace WPFCalculator
             {
                 _input = 0;
             }
-            SetOutputText(_input);
+            SetInputText();
         }
 
         private void Button_SignChange_Click(object sender, RoutedEventArgs e)
         {
             _input = -_input;
-            SetOutputText(_input);
+            SetInputText();
         }
     }
 }
