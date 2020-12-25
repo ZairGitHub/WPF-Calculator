@@ -41,21 +41,12 @@ namespace WPFCalculator
             ClearHistoryText();
         }
 
-        private void SetInputText()
-        {
-            TextOutput.Text = _input.ToString();
-        }
+        private void SetInputText() => TextOutput.Text = _input.ToString();
 
-        private void ClearOperation()
-        {
-            _operation = null;
-        }
-
-        private void ClearHistoryText()
-        {
-            TextHistory.Text = null;
-        }
-
+        private void ClearOperation() => _operation = null;
+        
+        private void ClearHistoryText() => TextHistory.Text = null;
+        
         private void AddToListHistory(double number, string operation)
         {
             _listHistory.Add(number);
@@ -64,9 +55,9 @@ namespace WPFCalculator
             TextHistory.Text += $"{number} {operation} ";
         }
 
-        private void PrepareNewEquationEnvironment(object obj)
+        private void PrepareNewEquationEnvironment(object buttonClick)
         {
-            if (obj is double)
+            if (buttonClick is double)
             {
                 ClearAll();
             }
