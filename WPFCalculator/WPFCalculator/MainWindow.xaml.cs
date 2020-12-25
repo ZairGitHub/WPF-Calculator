@@ -63,30 +63,45 @@ namespace WPFCalculator
             TextHistory.Text += $"{number} {operation} ";
         }
 
-        private void Button_Number_Click(object sender, RoutedEventArgs e)
+        private void PrepareNewEquationEnvironment(object obj)
         {
-            if (_isNewEquation)
+            if (obj is double)
             {
                 ClearAll();
-                _isNewEquation = false;
             }
+            else
+            {
+                ClearHistoryText();
+            }
+            _isNewEquation = false;
+        }
 
+        private void Button_Number_Click(object sender, RoutedEventArgs e)
+        {
             Button button = (Button)sender;
             double number = Convert.ToDouble(button.Content.ToString());
+            if (_isNewEquation)
+            {
+                PrepareNewEquationEnvironment(number);
+                //ClearAll();
+                //_isNewEquation = false;
+            }
+
             _input = (_input * 10) + number;
             SetOutputText(_input);
         }
 
         private void Button_Operation_Click(object sender, RoutedEventArgs e)
         {
-            if (_isNewEquation)
-            {
-                ClearHistoryText();
-                _isNewEquation = false;
-            }
-
             Button button = (Button)sender;
             _operation = button.Content.ToString();
+            if (_isNewEquation)
+            {
+                PrepareNewEquationEnvironment(_operation);
+                //ClearHistoryText();
+                //_isNewEquation = false;
+            }
+
             AddToListHistory(_input, _operation);
 
             if (_operation != "=")
