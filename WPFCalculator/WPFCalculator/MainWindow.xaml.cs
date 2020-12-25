@@ -44,10 +44,12 @@ namespace WPFCalculator
             TextOutput.Text = text.ToString();
         }
 
-        private void AddToListHistory(object obj)
+        private void AddToListHistory(double number, string operation)
         {
-            _listHistory.Add(obj);
-            TextHistory.Text += obj.ToString();
+            _listHistory.Add(number);
+            _listHistory.Add(operation);
+
+            TextHistory.Text += $"{number} {operation} ";
         }
 
         private void ClearHistoryText()
@@ -65,11 +67,9 @@ namespace WPFCalculator
 
         private void Button_Operation_Click(object sender, RoutedEventArgs e)
         {
-            AddToListHistory(_input);
-
             Button button = (Button)sender;
             _operation = button.Content.ToString();
-            AddToListHistory(_operation);
+            AddToListHistory(_input, _operation);
             if (_operation != "=")
             {
                 _input = 0;
