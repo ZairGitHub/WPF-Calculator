@@ -65,23 +65,19 @@ namespace WPFCalculator
 
         private void Button_Operation_Click(object sender, RoutedEventArgs e)
         {
-            //_listHistory.Add(_input);
             AddToListHistory(_input);
 
             Button button = (Button)sender;
             _operation = button.Content.ToString();
+            AddToListHistory(_operation);
             if (_operation != "=")
             {
-                //_listHistory.Add(_operation);
-                AddToListHistory(_operation);
-
                 _input = 0;
                 _operation = string.Empty;
                 SetOutputText(_input);
             }
             else
             {
-                AddToListHistory(_operation);
                 if (_listHistory.Count < 3)
                 {
                     _sum = 0;
