@@ -21,7 +21,8 @@ namespace WPFCalculator
 
         private double _input;
         private double _sum;
-        string _operation;
+        private string _operation;
+        private bool _isNewEquation;
 
         public MainWindow()
         {
@@ -34,8 +35,14 @@ namespace WPFCalculator
             _listHistory.Clear();
             _input = 0;
             _sum = 0;
-            _operation = string.Empty;
+            ClearOperation();
             SetOutputText(_input);
+            ClearHistoryText();
+        }
+
+        private void ClearOperation()
+        {
+            _operation = null;
         }
 
         private void SetOutputText<T>(T text)
@@ -43,26 +50,60 @@ namespace WPFCalculator
             TextOutput.Text = text.ToString();
         }
 
+        private void ClearHistoryText()
+        {
+            TextHistory.Text = null;
+        }
+
+        private void AddToListHistory(double number, string operation)
+        {
+            _listHistory.Add(number);
+            _listHistory.Add(operation);
+
+            TextHistory.Text += $"{number} {operation} ";
+        }
+
+        private void PrepareNewEquationEnvironment(object obj)
+        {
+            if (obj is double)
+            {
+                ClearAll();
+            }
+            else
+            {
+                ClearHistoryText();
+            }
+            _isNewEquation = false;
+        }
+
         private void Button_Number_Click(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
             double number = Convert.ToDouble(button.Content.ToString());
+
+            if (_isNewEquation)
+            {
+                PrepareNewEquationEnvironment(number);
+            }
             _input = (_input * 10) + number;
             SetOutputText(_input);
         }
 
         private void Button_Operation_Click(object sender, RoutedEventArgs e)
         {
-            _listHistory.Add(_input);
-
             Button button = (Button)sender;
             _operation = button.Content.ToString();
+
+            if (_isNewEquation)
+            {
+                PrepareNewEquationEnvironment(_operation);
+            }
+            AddToListHistory(_input, _operation);
+
             if (_operation != "=")
             {
-                _listHistory.Add(_operation);
-
                 _input = 0;
-                _operation = string.Empty;
+                ClearOperation();
                 SetOutputText(_input);
             }
             else
@@ -104,9 +145,9 @@ namespace WPFCalculator
                             }
                         }
                     }
-                    _input = 0;
-                    _listHistory.Clear();
-                    SetOutputText(_sum);
+                    _isNewEquation = true;
+                    _input = _sum;
+                    SetOutputText(_input);
                 }
             }
         }
