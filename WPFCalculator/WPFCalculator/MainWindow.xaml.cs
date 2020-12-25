@@ -42,7 +42,7 @@ namespace WPFCalculator
 
         private void ClearOperation()
         {
-            _operation = string.Empty;
+            _operation = null;
         }
 
         private void SetOutputText<T>(T text)
@@ -52,7 +52,7 @@ namespace WPFCalculator
 
         private void ClearHistoryText()
         {
-            TextHistory.Text = string.Empty;
+            TextHistory.Text = null;
         }
 
         private void AddToListHistory(double number, string operation)
@@ -80,11 +80,10 @@ namespace WPFCalculator
         {
             Button button = (Button)sender;
             double number = Convert.ToDouble(button.Content.ToString());
+
             if (_isNewEquation)
             {
                 PrepareNewEquationEnvironment(number);
-                //ClearAll();
-                //_isNewEquation = false;
             }
 
             _input = (_input * 10) + number;
@@ -95,11 +94,10 @@ namespace WPFCalculator
         {
             Button button = (Button)sender;
             _operation = button.Content.ToString();
+
             if (_isNewEquation)
             {
                 PrepareNewEquationEnvironment(_operation);
-                //ClearHistoryText();
-                //_isNewEquation = false;
             }
 
             AddToListHistory(_input, _operation);
