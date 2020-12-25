@@ -54,10 +54,10 @@
                  TextAlignment="right" VerticalAlignment="Bottom"
                  FontSize="20" BorderThickness="0"
                  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Margin="0,5,5,0">Text</TextBox>
-        
+
         <TextBox x:Name="TextHistory" IsReadOnly="true"
                  TextAlignment="right" VerticalAlignment="Top"
                  FontSize="10" BorderThickness="0"
-                 Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Margin="0,5,5,0">Text</TextBox>
+                 Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Margin="0,5,5,0"></TextBox>
     </Grid>
 </Window>

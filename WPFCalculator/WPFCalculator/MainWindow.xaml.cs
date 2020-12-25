@@ -36,11 +36,22 @@ namespace WPFCalculator
             _sum = 0;
             _operation = string.Empty;
             SetOutputText(_input);
+            ClearHistoryText();
         }
 
         private void SetOutputText<T>(T text)
         {
             TextOutput.Text = text.ToString();
+        }
+
+        private void SetHistoryText()
+        {
+            TextHistory.Text += _listHistory.Last().ToString();
+        }
+
+        private void ClearHistoryText()
+        {
+            TextHistory.Text = string.Empty;
         }
 
         private void Button_Number_Click(object sender, RoutedEventArgs e)
@@ -54,12 +65,14 @@ namespace WPFCalculator
         private void Button_Operation_Click(object sender, RoutedEventArgs e)
         {
             _listHistory.Add(_input);
+            SetHistoryText();
 
             Button button = (Button)sender;
             _operation = button.Content.ToString();
             if (_operation != "=")
             {
                 _listHistory.Add(_operation);
+                SetHistoryText();
 
                 _input = 0;
                 _operation = string.Empty;
@@ -67,6 +80,7 @@ namespace WPFCalculator
             }
             else
             {
+                SetHistoryText();
                 if (_listHistory.Count < 3)
                 {
                     _sum = 0;
