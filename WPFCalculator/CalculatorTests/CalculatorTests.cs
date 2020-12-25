@@ -46,7 +46,8 @@ namespace CalculatorTests
             double a = It.IsAny<int>();
             double b = 0;
 
-            var result = Assert.Throws<DivideByZeroException>(() => Calculator.Divide(a, b));
+            var result = Assert.Throws<DivideByZeroException>(() =>
+                Calculator.Divide(a, b));
 
             Assert.Equal("Cannot divide by zero", result.Message);
         }
@@ -69,7 +70,8 @@ namespace CalculatorTests
             double a = It.IsAny<int>();
             double b = 0;
 
-            var result = Assert.Throws<DivideByZeroException>(() => Calculator.Modulo(a, b));
+            var result = Assert.Throws<DivideByZeroException>(() =>
+                Calculator.Modulo(a, b));
 
             Assert.Equal("Cannot divide by zero", result.Message);
         }
