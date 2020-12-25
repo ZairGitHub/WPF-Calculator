@@ -20,7 +20,6 @@ namespace WPFCalculator
         private readonly List<object> _listHistory = new List<object>();
 
         private double _input;
-        private double _sum;
         private string _operation;
         private bool _isNewEquation;
 
@@ -34,8 +33,6 @@ namespace WPFCalculator
         {
             _listHistory.Clear();
             _input = 0;
-            _sum = 0;
-
             UpdateOutputText();
             ClearOperation();
             ClearHistoryText();
@@ -100,47 +97,38 @@ namespace WPFCalculator
             }
             else
             {
-                if (_listHistory.Count < 3)
+                _input = Convert.ToDouble(_listHistory[0]);
+                string operation = Convert.ToString(_listHistory[1]);
+                double number;
+                for (int i = 2; i < _listHistory.Count; i++)
                 {
-                    _sum = 0;
-                }
-                else
-                {
-                    _sum = Convert.ToDouble(_listHistory[0]);
-
-                    double number;
-                    string operation = null;
-                    for (int i = 1; i < _listHistory.Count; i++)
+                    if (i % 2 == 0)
                     {
-                        if (i % 2 != 0)
-                        {
-                            operation = Convert.ToString(_listHistory[i]);
-                        }
-                        else
-                        {
-                            number = Convert.ToDouble(_listHistory[i]);
+                        number = Convert.ToDouble(_listHistory[i]);
 
-                            switch (operation)
-                            {
-                                case "+":
-                                    _sum += number;
-                                    break;
-                                case "-":
-                                    _sum -= number;
-                                    break;
-                                case "*":
-                                    _sum *= number;
-                                    break;
-                                case "/":
-                                    _sum /= number;
-                                    break;
-                            }
+                        switch (operation)
+                        {
+                            case "+":
+                                _input += number;
+                                break;
+                            case "-":
+                                _input -= number;
+                                break;
+                            case "*":
+                                _input *= number;
+                                break;
+                            case "/":
+                                _input /= number;
+                                break;
                         }
                     }
-                    _isNewEquation = true;
-                    _input = _sum;
-                    UpdateOutputText();
+                    else
+                    {
+                        operation = Convert.ToString(_listHistory[i]);
+                    }
                 }
+                _isNewEquation = true;
+                UpdateOutputText();
             }
         }
 
