@@ -36,12 +36,12 @@ namespace WPFCalculator
             _input = 0;
             _sum = 0;
 
-            SetInputText();
+            UpdateOutputText();
             ClearOperation();
             ClearHistoryText();
         }
 
-        private void SetInputText() => TextOutput.Text = _input.ToString();
+        private void UpdateOutputText() => TextOutput.Text = _input.ToString();
 
         private void ClearOperation() => _operation = null;
         
@@ -78,7 +78,7 @@ namespace WPFCalculator
                 PrepareNewEquationEnvironment(number);
             }
             _input = (_input * 10) + number;
-            SetInputText();
+            UpdateOutputText();
         }
 
         private void Button_Operation_Click(object sender, RoutedEventArgs e)
@@ -96,7 +96,7 @@ namespace WPFCalculator
             {
                 _input = 0;
                 ClearOperation();
-                SetInputText();
+                UpdateOutputText();
             }
             else
             {
@@ -139,7 +139,7 @@ namespace WPFCalculator
                     }
                     _isNewEquation = true;
                     _input = _sum;
-                    SetInputText();
+                    UpdateOutputText();
                 }
             }
         }
@@ -152,7 +152,7 @@ namespace WPFCalculator
         private void Button_ClearEntry_Click(object sender, RoutedEventArgs e)
         {
             _input = 0;
-            SetInputText();
+            UpdateOutputText();
         }
 
         private void Button_Backspace_Click(object sender, RoutedEventArgs e)
@@ -167,13 +167,13 @@ namespace WPFCalculator
             {
                 _input = 0;
             }
-            SetInputText();
+            UpdateOutputText();
         }
 
         private void Button_SignChange_Click(object sender, RoutedEventArgs e)
         {
             _input = -_input;
-            SetInputText();
+            UpdateOutputText();
         }
     }
 }
