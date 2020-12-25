@@ -43,14 +43,6 @@ namespace WPFCalculator
         private void ClearOperation() => _operation = null;
         
         private void ClearHistoryText() => TextHistory.Text = null;
-        
-        private void AddToListHistory(double number, string operation)
-        {
-            _listHistory.Add(number);
-            _listHistory.Add(operation);
-
-            TextHistory.Text += $"{number} {operation} ";
-        }
 
         private void PrepareNewEquationEnvironment(object buttonClick)
         {
@@ -87,7 +79,9 @@ namespace WPFCalculator
             {
                 PrepareNewEquationEnvironment(_operation);
             }
-            AddToListHistory(_input, _operation);
+            _listHistory.Add(_input);
+            _listHistory.Add(_operation);
+            TextHistory.Text += $"{_input} {_operation} ";
 
             if (_operation != "=")
             {
