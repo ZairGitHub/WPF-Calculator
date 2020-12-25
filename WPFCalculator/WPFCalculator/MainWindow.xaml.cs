@@ -34,14 +34,24 @@ namespace WPFCalculator
             _listHistory.Clear();
             _input = 0;
             _sum = 0;
-            _operation = string.Empty;
+            ClearOperation();
             SetOutputText(_input);
             ClearHistoryText();
+        }
+
+        private void ClearOperation()
+        {
+            _operation = string.Empty;
         }
 
         private void SetOutputText<T>(T text)
         {
             TextOutput.Text = text.ToString();
+        }
+
+        private void ClearHistoryText()
+        {
+            TextHistory.Text = string.Empty;
         }
 
         private void AddToListHistory(double number, string operation)
@@ -50,11 +60,6 @@ namespace WPFCalculator
             _listHistory.Add(operation);
 
             TextHistory.Text += $"{number} {operation} ";
-        }
-
-        private void ClearHistoryText()
-        {
-            TextHistory.Text = string.Empty;
         }
 
         private void Button_Number_Click(object sender, RoutedEventArgs e)
@@ -73,7 +78,7 @@ namespace WPFCalculator
             if (_operation != "=")
             {
                 _input = 0;
-                _operation = string.Empty;
+                ClearOperation();
                 SetOutputText(_input);
             }
             else
