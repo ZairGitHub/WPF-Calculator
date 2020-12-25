@@ -65,6 +65,12 @@ namespace WPFCalculator
 
         private void Button_Number_Click(object sender, RoutedEventArgs e)
         {
+            if (_isNewEquation)
+            {
+                ClearAll();
+                _isNewEquation = false;
+            }
+
             Button button = (Button)sender;
             double number = Convert.ToDouble(button.Content.ToString());
             _input = (_input * 10) + number;
@@ -128,10 +134,8 @@ namespace WPFCalculator
                             }
                         }
                     }
-                    _input = _sum;
                     _isNewEquation = true;
-                    //ClearHistoryText();
-                    //_listHistory.Clear();
+                    _input = _sum;
                     SetOutputText(_input);
                 }
             }
