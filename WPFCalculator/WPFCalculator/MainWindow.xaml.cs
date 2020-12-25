@@ -85,7 +85,6 @@ namespace WPFCalculator
             {
                 PrepareNewEquationEnvironment(number);
             }
-
             _input = (_input * 10) + number;
             SetOutputText(_input);
         }
@@ -99,7 +98,6 @@ namespace WPFCalculator
             {
                 PrepareNewEquationEnvironment(_operation);
             }
-
             AddToListHistory(_input, _operation);
 
             if (_operation != "=")
