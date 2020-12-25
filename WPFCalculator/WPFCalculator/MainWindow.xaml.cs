@@ -21,7 +21,8 @@ namespace WPFCalculator
 
         private double _input;
         private double _sum;
-        string _operation;
+        private string _operation;
+        private bool _isNewEquation;
 
         public MainWindow()
         {
@@ -72,9 +73,16 @@ namespace WPFCalculator
 
         private void Button_Operation_Click(object sender, RoutedEventArgs e)
         {
+            if (_isNewEquation)
+            {
+                ClearHistoryText();
+                _isNewEquation = false;
+            }
+
             Button button = (Button)sender;
             _operation = button.Content.ToString();
             AddToListHistory(_input, _operation);
+
             if (_operation != "=")
             {
                 _input = 0;
@@ -120,9 +128,11 @@ namespace WPFCalculator
                             }
                         }
                     }
-                    _input = 0;
-                    _listHistory.Clear();
-                    SetOutputText(_sum);
+                    _input = _sum;
+                    _isNewEquation = true;
+                    //ClearHistoryText();
+                    //_listHistory.Clear();
+                    SetOutputText(_input);
                 }
             }
         }
