@@ -97,39 +97,44 @@ namespace WPFCalculator
             }
             else
             {
-                _input = Convert.ToDouble(_listHistory[0]);
-                string operation = Convert.ToString(_listHistory[1]);
-                double number;
-                for (int i = 2; i < _listHistory.Count; i++)
-                {
-                    if (i % 2 == 0)
-                    {
-                        number = Convert.ToDouble(_listHistory[i]);
+                CalculateSum(_listHistory);
+            }
+        }
 
-                        switch (operation)
-                        {
-                            case "+":
-                                _input += number;
-                                break;
-                            case "-":
-                                _input -= number;
-                                break;
-                            case "*":
-                                _input *= number;
-                                break;
-                            case "/":
-                                _input /= number;
-                                break;
-                        }
-                    }
-                    else
+        private void CalculateSum(List<object> list)
+        {
+            _input = Convert.ToDouble(list[0]);
+            string operation = Convert.ToString(list[1]);
+            double number;
+            for (int i = 2; i < list.Count; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    number = Convert.ToDouble(list[i]);
+
+                    switch (operation)
                     {
-                        operation = Convert.ToString(_listHistory[i]);
+                        case "+":
+                            _input += number;
+                            break;
+                        case "-":
+                            _input -= number;
+                            break;
+                        case "*":
+                            _input *= number;
+                            break;
+                        case "/":
+                            _input /= number;
+                            break;
                     }
                 }
-                _isNewEquation = true;
-                UpdateOutputText();
+                else
+                {
+                    operation = Convert.ToString(list[i]);
+                }
             }
+            _isNewEquation = true;
+            UpdateOutputText();
         }
 
         private void Button_ClearAll_Click(object sender, RoutedEventArgs e)
