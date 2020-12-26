@@ -28,6 +28,11 @@ namespace CalculatorApp
             return a % b;
         }
 
+        public static double Exponent(double a)
+        {
+            return Math.Pow(a, 2);
+        }
+
         public static double SquareRoot(double a)
         {
             if (a < 0)
