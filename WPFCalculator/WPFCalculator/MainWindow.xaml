@@ -73,6 +73,10 @@
                 Grid.Row="3" Grid.Column="2" FontWeight="Bold"
                 Click="Button_Number_Click">9</Button>
 
+        <Button x:FieldModifier="private" x:Name="_buttonModulo"
+                Grid.Row="1" Grid.Column="3" FontWeight="Bold"
+                Click="Button_Operation_Click">%</Button>
+
         <Button x:FieldModifier="private" x:Name="_buttonDivide"
                 Grid.Row="2" Grid.Column="3" FontWeight="Bold"
                 Click="Button_Operation_Click">/</Button>
@@ -94,15 +98,15 @@
                 Click="Button_Operation_Click">=</Button>
 
         <Button x:FieldModifier="private" x:Name="_buttonClearAll"
-                Grid.Row="2" Grid.Column="0" FontWeight="Bold"
+                Grid.Row="1" Grid.Column="0" FontWeight="Bold"
                 Click="Button_ClearAll_Click">C</Button>
         
         <Button x:FieldModifier="private" x:Name="_buttonClearEntry"
-                Grid.Row="2" Grid.Column="1" FontWeight="Bold"
+                Grid.Row="1" Grid.Column="1" FontWeight="Bold"
                 Click="Button_ClearEntry_Click">CE</Button>
         
         <Button x:FieldModifier="private" x:Name="_buttonBackspace"
-                Grid.Row="2" Grid.Column="2" FontWeight="Bold"
+                Grid.Row="1" Grid.Column="2" FontWeight="Bold"
                 Click="Button_Backspace_Click">DEL</Button>
 
         <TextBox x:Name="_textOutput" x:FieldModifier="private" IsReadOnly="true"
