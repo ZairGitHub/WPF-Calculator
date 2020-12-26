@@ -195,6 +195,12 @@ namespace WPFCalculator
             UpdateOutputText();
         }
 
+        private void Button_Squared_Click(object sender, RoutedEventArgs e)
+        {
+            _input = Math.Sqrt(Convert.ToDouble(_input)).ToString();
+            UpdateOutputText();
+        }
+
         private void Button_ClearAll_Click(object sender, RoutedEventArgs e)
         {
             ClearAll();
