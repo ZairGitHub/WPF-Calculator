@@ -39,7 +39,7 @@ namespace WPFCalculator
             ClearHistoryText();
         }
 
-        private void ResetInput() => _input = null;
+        private void ResetInput() => _input = "0";
 
         private void UpdateOutputText() => _textOutput.Text = _input;
 
@@ -75,6 +75,12 @@ namespace WPFCalculator
             {
                 PrepareNewEquationEnvironment(number);
             }
+
+            if (_input == "0")
+            {
+                _input = null;
+            }
+
             _input += number;
             UpdateOutputText();
         }
