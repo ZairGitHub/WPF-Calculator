@@ -87,5 +87,26 @@ namespace CalculatorTests
 
             Assert.Equal(a % b, result);
         }
+
+        [Fact]
+        public void SquareRoot_NegativeNumber_ThrowsArgumentExceptionWithCustomMessage()
+        {
+            double a = -1;
+
+            var result = Assert.Throws<ArgumentException>(() =>
+                Calculator.SquareRoot(a));
+
+            Assert.Equal("Can not square root negative numbers", result.Message);
+        }
+
+        [Fact]
+        public void SquareRoot_ReturnsSquareRootOfA()
+        {
+            double a = It.IsAny<int>();
+
+            var result = Calculator.SquareRoot(a);
+
+            Assert.Equal(Math.Sqrt(a), result);
+        }
     }
 }

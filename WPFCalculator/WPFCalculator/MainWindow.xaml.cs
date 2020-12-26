@@ -166,9 +166,9 @@ namespace WPFCalculator
                             {
                                 sum = Calculator.Divide(sum, number);
                             }
-                            catch (DivideByZeroException e)
+                            catch (DivideByZeroException ex)
                             {
-                                _textHistory.Text = e.Message;
+                                _textHistory.Text = ex.Message;
                                 hasException = true;
                             }
                             break;
@@ -177,9 +177,9 @@ namespace WPFCalculator
                             {
                                 sum = Calculator.Modulo(sum, number);
                             }
-                            catch (DivideByZeroException e)
+                            catch (DivideByZeroException ex)
                             {
-                                _textHistory.Text = e.Message;
+                                _textHistory.Text = ex.Message;
                                 hasException = true;
                             }
                             break;
@@ -192,6 +192,22 @@ namespace WPFCalculator
             }
             _input = sum.ToString();
             _isNewEquation = true;
+            UpdateOutputText();
+        }
+
+        private void Button_SquareRoot_Click(object sender, RoutedEventArgs e)
+        {
+            string text = $"Sqrt({_input})";
+            try
+            {
+                _input = Calculator.SquareRoot(Convert.ToDouble(_input)).ToString();
+            }
+            catch (ArgumentException ex)
+            {
+                text = ex.Message;
+                ResetInput();
+            }
+            _textHistory.Text = text;
             UpdateOutputText();
         }
 
