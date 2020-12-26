@@ -89,6 +89,16 @@ namespace CalculatorTests
         }
 
         [Fact]
+        public void Exponent_ReturnsNumberWithExponentOf2()
+        {
+            double a  = It.IsAny<int>();
+
+            var result = Calculator.Exponent(a);
+
+            Assert.Equal(Math.Pow(a, 2), result);
+        }
+
+        [Fact]
         public void SquareRoot_NegativeNumber_ThrowsArgumentExceptionWithCustomMessage()
         {
             double a = -1;
