@@ -33,10 +33,6 @@
                 Grid.Row="6" Grid.Column="1" FontWeight="Bold"
                 Click="Button_Number_Click">0</Button>
         
-        <Button x:FieldModifier="private" x:Name="_buttonDecimal"
-                Grid.Row="6" Grid.Column="2" FontWeight="Bold"
-                Click="Button_Number_Click">.</Button>
-
         <Button x:FieldModifier="private" x:Name="_button1"
                 Grid.Row="5" Grid.Column="0" FontWeight="Bold"
                 Click="Button_Number_Click">1</Button>
@@ -74,7 +70,7 @@
                 Click="Button_Number_Click">9</Button>
 
         <Button x:FieldModifier="private" x:Name="_buttonModulo"
-                Grid.Row="1" Grid.Column="3" FontWeight="Bold"
+                Grid.Row="6" Grid.Column="2" FontWeight="Bold"
                 Click="Button_Operation_Click">%</Button>
 
         <Button x:FieldModifier="private" x:Name="_buttonDivide"
