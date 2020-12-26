@@ -136,6 +136,17 @@ namespace WPFCalculator
                                 hasException = true;
                             }
                             break;
+                        case "%":
+                            try
+                            {
+                                _input = Calculator.Modulo(_input, number);
+                            }
+                            catch (DivideByZeroException e)
+                            {
+                                _textHistory.Text = e.Message;
+                                hasException = true;
+                            }
+                            break;
                     }
                 }
                 else
