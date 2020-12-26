@@ -48,6 +48,11 @@ namespace WPFCalculator
         private void Button_SignChange_Click(object sender, RoutedEventArgs e)
         {
             _input = -_input;
+            if (_listHistory.Count > 0)
+            {
+                _listHistory.Remove(_listHistory.Last());
+                _listHistory.Add(_input);
+            }
             UpdateOutputText();
         }
 
