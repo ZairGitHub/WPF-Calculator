@@ -195,6 +195,9 @@ namespace WPFCalculator
             UpdateOutputText();
         }
 
+        private void Button_Exponent_Click(object sender, RoutedEventArgs e)
+        { }
+
         private void Button_SquareRoot_Click(object sender, RoutedEventArgs e)
         {
             string text = $"Sqrt({_input})";
