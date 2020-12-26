@@ -28,7 +28,14 @@ namespace CalculatorApp
             return a % b;
         }
 
-        public static double Percentage(double a) => 1 / a;
+        public static double Percentage(double a)
+        {
+            if (a == 0)
+            {
+                throw new DivideByZeroException("Cannot divide by zero");
+            }
+            return 1 / a;
+        }
         
         public static double Exponent(double a)
         {
