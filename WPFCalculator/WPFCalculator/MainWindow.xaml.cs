@@ -49,7 +49,14 @@ namespace WPFCalculator
 
         private void Button_SignChange_Click(object sender, RoutedEventArgs e)
         {
-            _input = _input.Contains('-') ? "-" + _input : _input;
+            if (_input[0] == '-')
+            {
+                _input = _input.Substring(1, _input.Length - 1);
+            }
+            else
+            {
+                _input = "-" + _input;
+            }
 
             if (_listHistory.Count > 0)
             {
