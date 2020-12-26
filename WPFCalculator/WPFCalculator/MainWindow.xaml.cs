@@ -199,12 +199,9 @@ namespace WPFCalculator
 
         private void Button_Backspace_Click(object sender, RoutedEventArgs e)
         {
-            double input = Convert.ToDouble(_input);
-            if (input >= 10 || input <= -10)
+            if (_input.Length > 1)
             {
-                string inputString = _input.ToString();
-                inputString = inputString.Substring(0, inputString.Length - 1);
-                _input = inputString;
+                _input = _input.Substring(0, _input.Length - 1);
             }
             else
             {
