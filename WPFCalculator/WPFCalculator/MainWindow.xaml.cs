@@ -66,6 +66,14 @@ namespace WPFCalculator
             UpdateOutputText();
         }
 
+        private void Button_Decimal_Click(object sender, RoutedEventArgs e)
+        {
+            if (!_input.Contains('.'))
+            {
+                _input += ".";
+            }
+        }
+
         private void Button_Number_Click(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
