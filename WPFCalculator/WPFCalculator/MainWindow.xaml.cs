@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CalculatorApp;
 
 namespace WPFCalculator
 {
@@ -100,8 +101,15 @@ namespace WPFCalculator
             _input = Convert.ToDouble(list[0]);
             string operation = Convert.ToString(list[1]);
             double number;
+            bool hasException = false;
             for (int i = 2; i < list.Count; i++)
             {
+                if (hasException)
+                {
+                    _input = 0;
+                    break;
+                }
+
                 if (i % 2 == 0)
                 {
                     number = Convert.ToDouble(list[i]);
@@ -109,16 +117,24 @@ namespace WPFCalculator
                     switch (operation)
                     {
                         case "+":
-                            _input += number;
+                            _input = Calculator.Add(_input, number);
                             break;
                         case "-":
-                            _input -= number;
+                            _input = Calculator.Subtract(_input, number);
                             break;
                         case "*":
-                            _input *= number;
+                            _input = Calculator.Multiply(_input, number);
                             break;
                         case "/":
-                            _input /= number;
+                            try
+                            {
+                                _input = Calculator.Divide(_input, number);
+                            }
+                            catch (DivideByZeroException e)
+                            {
+                                TextHistory.Text = e.Message;
+                                hasException = true;
+                            }
                             break;
                     }
                 }
