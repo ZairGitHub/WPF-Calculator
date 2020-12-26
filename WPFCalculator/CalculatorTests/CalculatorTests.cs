@@ -10,8 +10,8 @@ namespace CalculatorTests
         [Fact]
         public void Add_ReturnsAPlusB()
         {
-            double a = It.IsAny<int>();
-            double b = It.IsAny<int>();
+            double a = It.IsAny<double>();
+            double b = It.IsAny<double>();
 
             var result = Calculator.Add(a, b);
 
@@ -21,8 +21,8 @@ namespace CalculatorTests
         [Fact]
         public void Subtract_ReturnsAMinusB()
         {
-            double a = It.IsAny<int>();
-            double b = It.IsAny<int>();
+            double a = It.IsAny<double>();
+            double b = It.IsAny<double>();
 
             var result = Calculator.Subtract(a, b);
 
@@ -32,8 +32,8 @@ namespace CalculatorTests
         [Fact]
         public void Multiply_ReturnsAMultipliedByB()
         {
-            double a = It.IsAny<int>();
-            double b = It.IsAny<int>();
+            double a = It.IsAny<double>();
+            double b = It.IsAny<double>();
 
             var result = Calculator.Multiply(a, b);
 
@@ -43,7 +43,7 @@ namespace CalculatorTests
         [Fact]
         public void Divide_BIsZero_ThrowsDivideByZeroExceptionWithCustomMessage()
         {
-            double a = It.IsAny<int>();
+            double a = It.IsAny<double>();
             double b = 0;
 
             var result = Assert.Throws<DivideByZeroException>(() =>
@@ -55,9 +55,9 @@ namespace CalculatorTests
         [Theory]
         [InlineData(-1)]
         [InlineData(1)]
-        public void Divide_BIsNotZero_ReturnsADividedByB(int b)
+        public void Divide_BIsNotZero_ReturnsADividedByB(double b)
         {
-            double a = It.IsAny<int>();
+            double a = It.IsAny<double>();
 
             var result = Calculator.Divide(a, b);
 
@@ -67,7 +67,7 @@ namespace CalculatorTests
         [Fact]
         public void Modulo_BIsZero_ThrowsDivideByZeroExceptionWithCustomMessage()
         {
-            double a = It.IsAny<int>();
+            double a = It.IsAny<double>();
             double b = 0;
 
             var result = Assert.Throws<DivideByZeroException>(() =>
@@ -79,9 +79,9 @@ namespace CalculatorTests
         [Theory]
         [InlineData(-1)]
         [InlineData(1)]
-        public void Modulo_BIsNotZero_ReturnsAModuloB(int b)
+        public void Modulo_BIsNotZero_ReturnsAModuloB(double b)
         {
-            double a = It.IsAny<int>();
+            double a = It.IsAny<double>();
 
             var result = Calculator.Modulo(a, b);
 
@@ -112,7 +112,7 @@ namespace CalculatorTests
         [Fact]
         public void Exponent_ReturnsNumberWithExponentOf2()
         {
-            double a  = It.IsAny<int>();
+            double a  = It.IsAny<double>();
 
             var result = Calculator.Exponent(a);
 
@@ -133,7 +133,7 @@ namespace CalculatorTests
         [Fact]
         public void SquareRoot_PositiveNumber_ReturnsSquareRootOfNumber()
         {
-            double a = It.IsAny<int>();
+            double a = It.IsAny<double>();
 
             var result = Calculator.SquareRoot(a);
 
