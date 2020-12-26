@@ -28,6 +28,8 @@ namespace CalculatorApp
             return a % b;
         }
 
+        public static double Percentage(double a) => 1 / a;
+        
         public static double Exponent(double a)
         {
             return Math.Pow(a, 2);
