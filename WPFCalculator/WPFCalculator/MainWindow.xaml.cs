@@ -107,6 +107,7 @@ namespace WPFCalculator
             {
                 PrepareNewEquationEnvironment(_operation);
             }
+
             _listHistory.Add(_input);
             _listHistory.Add(_operation);
             _textHistory.Text += $"{_input} {_operation} ";
