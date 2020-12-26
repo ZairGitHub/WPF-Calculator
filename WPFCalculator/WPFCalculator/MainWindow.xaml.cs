@@ -45,17 +45,10 @@ namespace WPFCalculator
         
         private void ClearHistoryText() => _textHistory.Text = null;
 
-        private void PrepareNewEquationEnvironment(object buttonClick)
+        private void Button_SignChange_Click(object sender, RoutedEventArgs e)
         {
-            if (buttonClick is double)
-            {
-                ClearAll();
-            }
-            else
-            {
-                ClearHistoryText();
-            }
-            _isNewEquation = false;
+            _input = -_input;
+            UpdateOutputText();
         }
 
         private void Button_Number_Click(object sender, RoutedEventArgs e)
@@ -69,6 +62,19 @@ namespace WPFCalculator
             }
             _input = (_input * 10) + number;
             UpdateOutputText();
+        }
+
+        private void PrepareNewEquationEnvironment(object buttonClick)
+        {
+            if (buttonClick is double)
+            {
+                ClearAll();
+            }
+            else
+            {
+                ClearHistoryText();
+            }
+            _isNewEquation = false;
         }
 
         private void Button_Operation_Click(object sender, RoutedEventArgs e)
@@ -96,24 +102,24 @@ namespace WPFCalculator
             }
         }
 
-        private void CalculateSum(List<object> list)
+        private void CalculateSum(List<object> listHistory)
         {
-            _input = Convert.ToDouble(list[0]);
-            string operation = Convert.ToString(list[1]);
+            _input = Convert.ToDouble(listHistory[0]);
+            string operation = Convert.ToString(listHistory[1]);
             double number;
             bool hasException = false;
-            for (int i = 2; i < list.Count; i++)
+            for (int i = 2; i < listHistory.Count; i++)
             {
                 if (hasException)
                 {
-                    list.Clear();
+                    listHistory.Clear();
                     _input = 0;
                     break;
                 }
 
                 if (i % 2 == 0)
                 {
-                    number = Convert.ToDouble(list[i]);
+                    number = Convert.ToDouble(listHistory[i]);
                     switch (operation)
                     {
                         case "+":
@@ -151,7 +157,7 @@ namespace WPFCalculator
                 }
                 else
                 {
-                    operation = Convert.ToString(list[i]);
+                    operation = Convert.ToString(listHistory[i]);
                 }
             }
             _isNewEquation = true;
@@ -181,12 +187,6 @@ namespace WPFCalculator
             {
                 _input = 0;
             }
-            UpdateOutputText();
-        }
-
-        private void Button_SignChange_Click(object sender, RoutedEventArgs e)
-        {
-            _input = -_input;
             UpdateOutputText();
         }
     }
