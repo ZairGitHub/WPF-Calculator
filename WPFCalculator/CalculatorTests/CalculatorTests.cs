@@ -87,5 +87,15 @@ namespace CalculatorTests
 
             Assert.Equal(a % b, result);
         }
+
+        [Fact]
+        public void SquareRoot_ReturnsSquareRootOfA()
+        {
+            double a = It.IsAny<int>();
+
+            var result = Calculator.SquareRoot(a);
+
+            Assert.Equal(Math.Sqrt(a), result);
+        }
     }
 }
