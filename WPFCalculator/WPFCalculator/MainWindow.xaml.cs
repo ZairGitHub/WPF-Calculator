@@ -39,11 +39,11 @@ namespace WPFCalculator
             ClearHistoryText();
         }
 
-        private void UpdateOutputText() => TextOutput.Text = _input.ToString();
+        private void UpdateOutputText() => _textOutput.Text = _input.ToString();
 
         private void ClearOperation() => _operation = null;
         
-        private void ClearHistoryText() => TextHistory.Text = null;
+        private void ClearHistoryText() => _textHistory.Text = null;
 
         private void PrepareNewEquationEnvironment(object buttonClick)
         {
@@ -82,7 +82,7 @@ namespace WPFCalculator
             }
             _listHistory.Add(_input);
             _listHistory.Add(_operation);
-            TextHistory.Text += $"{_input} {_operation} ";
+            _textHistory.Text += $"{_input} {_operation} ";
 
             if (_operation != "=")
             {
@@ -132,7 +132,7 @@ namespace WPFCalculator
                             }
                             catch (DivideByZeroException e)
                             {
-                                TextHistory.Text = e.Message;
+                                _textHistory.Text = e.Message;
                                 hasException = true;
                             }
                             break;

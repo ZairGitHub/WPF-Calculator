@@ -50,12 +50,12 @@
         <Button x:FieldModifier="private" x:Name="_buttonClearEntry" Grid.Row="1" Grid.Column="1" FontWeight="Bold" Click="Button_ClearEntry_Click">CE</Button>
         <Button x:FieldModifier="private" x:Name="_buttonBackspace" Grid.Row="1" Grid.Column="2" FontWeight="Bold" Click="Button_Backspace_Click">DEL</Button>
 
-        <TextBox x:Name="TextOutput" x:FieldModifier="private" IsReadOnly="true"
+        <TextBox x:Name="_textOutput" x:FieldModifier="private" IsReadOnly="true"
                  TextAlignment="right" VerticalAlignment="Bottom"
                  FontSize="20" BorderThickness="0"
                  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Margin="0,5,5,0">Text</TextBox>
 
-        <TextBox x:Name="TextHistory" x:FieldModifier="private" IsReadOnly="true"
+        <TextBox x:Name="_textHistory" x:FieldModifier="private" IsReadOnly="true"
                  TextAlignment="right" VerticalAlignment="Top"
                  FontSize="10" BorderThickness="0"
                  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Margin="0,5,5,0"></TextBox>
