@@ -20,7 +20,7 @@ namespace WPFCalculator
     {
         private readonly List<object> _listHistory = new List<object>();
 
-        private double _input;
+        private string _input;
         private string _operation;
         private bool _isNewEquation;
 
@@ -33,13 +33,15 @@ namespace WPFCalculator
         private void ClearAll()
         {
             _listHistory.Clear();
-            _input = 0;
+            ResetInput();
             UpdateOutputText();
             ClearOperation();
             ClearHistoryText();
         }
 
-        private void UpdateOutputText() => _textOutput.Text = _input.ToString();
+        private void ResetInput() => _input = null;
+
+        private void UpdateOutputText() => _textOutput.Text = _input;
 
         private void ClearOperation() => _operation = null;
         
@@ -47,7 +49,8 @@ namespace WPFCalculator
 
         private void Button_SignChange_Click(object sender, RoutedEventArgs e)
         {
-            _input = -_input;
+            _input = _input.Contains('-') ? "-" + _input : _input;
+
             if (_listHistory.Count > 0)
             {
                 _listHistory.Remove(_listHistory.Last());
@@ -65,7 +68,7 @@ namespace WPFCalculator
             {
                 PrepareNewEquationEnvironment(number);
             }
-            _input = (_input * 10) + number;
+            _input += number;
             UpdateOutputText();
         }
 
@@ -97,7 +100,7 @@ namespace WPFCalculator
 
             if (_operation != "=")
             {
-                _input = 0;
+                ResetInput();
                 ClearOperation();
                 UpdateOutputText();
             }
@@ -109,7 +112,7 @@ namespace WPFCalculator
 
         private void CalculateSum(List<object> listHistory)
         {
-            _input = Convert.ToDouble(listHistory[0]);
+            double sum = Convert.ToDouble(listHistory[0]);
             string operation = Convert.ToString(listHistory[1]);
             double number;
             bool hasException = false;
@@ -118,7 +121,7 @@ namespace WPFCalculator
                 if (hasException)
                 {
                     listHistory.Clear();
-                    _input = 0;
+                    ResetInput();
                     break;
                 }
 
@@ -128,18 +131,18 @@ namespace WPFCalculator
                     switch (operation)
                     {
                         case "+":
-                            _input = Calculator.Add(_input, number);
+                            sum = Calculator.Add(sum, number);
                             break;
                         case "-":
-                            _input = Calculator.Subtract(_input, number);
+                            sum = Calculator.Subtract(sum, number);
                             break;
                         case "*":
-                            _input = Calculator.Multiply(_input, number);
+                            sum = Calculator.Multiply(sum, number);
                             break;
                         case "/":
                             try
                             {
-                                _input = Calculator.Divide(_input, number);
+                                sum = Calculator.Divide(sum, number);
                             }
                             catch (DivideByZeroException e)
                             {
@@ -150,7 +153,7 @@ namespace WPFCalculator
                         case "%":
                             try
                             {
-                                _input = Calculator.Modulo(_input, number);
+                                sum = Calculator.Modulo(sum, number);
                             }
                             catch (DivideByZeroException e)
                             {
@@ -176,21 +179,22 @@ namespace WPFCalculator
 
         private void Button_ClearEntry_Click(object sender, RoutedEventArgs e)
         {
-            _input = 0;
+            ResetInput();
             UpdateOutputText();
         }
 
         private void Button_Backspace_Click(object sender, RoutedEventArgs e)
         {
-            if (_input >= 10 || _input <= -10)
+            double input = Convert.ToDouble(_input);
+            if (input >= 10 || input <= -10)
             {
                 string inputString = _input.ToString();
                 inputString = inputString.Substring(0, inputString.Length - 1);
-                _input = Convert.ToDouble(inputString);
+                _input = inputString;
             }
             else
             {
-                _input = 0;
+                ResetInput();
             }
             UpdateOutputText();
         }
