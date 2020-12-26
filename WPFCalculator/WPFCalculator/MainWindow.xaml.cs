@@ -195,6 +195,9 @@ namespace WPFCalculator
             UpdateOutputText();
         }
 
+        private void Button_Percentage_Click(object sender, RoutedEventArgs e)
+        { }
+
         private void Button_Exponent_Click(object sender, RoutedEventArgs e)
         {
             _textHistory.Text = $"^ {_input}";
