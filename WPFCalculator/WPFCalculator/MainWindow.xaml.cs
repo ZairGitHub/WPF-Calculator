@@ -106,6 +106,7 @@ namespace WPFCalculator
             {
                 if (hasException)
                 {
+                    list.Clear();
                     _input = 0;
                     break;
                 }
@@ -113,7 +114,6 @@ namespace WPFCalculator
                 if (i % 2 == 0)
                 {
                     number = Convert.ToDouble(list[i]);
-
                     switch (operation)
                     {
                         case "+":
