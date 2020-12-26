@@ -28,6 +28,15 @@ namespace CalculatorApp
             return a % b;
         }
 
-        public static double SquareRoot(double a) => Math.Sqrt(a);
+        public static double SquareRoot(double a)
+        {
+            if (a < 0)
+            {
+                throw new ArgumentOutOfRangeException(
+                    "Can not square root negative numbers");
+            }
+            return Math.Sqrt(a);
+        }
+            
     }
 }
