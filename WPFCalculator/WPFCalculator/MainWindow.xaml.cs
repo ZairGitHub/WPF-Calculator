@@ -143,7 +143,7 @@ namespace WPFCalculator
                 if (hasException)
                 {
                     listHistory.Clear();
-                    ResetInput();
+                    sum = 0;
                     break;
                 }
 

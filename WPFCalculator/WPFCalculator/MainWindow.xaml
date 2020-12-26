@@ -15,6 +15,7 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         
         <Grid.ColumnDefinitions>
@@ -25,77 +26,77 @@
         </Grid.ColumnDefinitions>
 
         <Button x:FieldModifier="private" x:Name="_buttonSignChange"
-                Grid.Row="5" Grid.Column="0" FontWeight="Bold"
+                Grid.Row="6" Grid.Column="0" FontWeight="Bold"
                 Click="Button_SignChange_Click">+/-</Button>
+
+        <Button x:FieldModifier="private" x:Name="_buttonDecimal"
+                Grid.Row="6" Grid.Column="2" FontWeight="Bold"
+                Click="Button_Decimal_Click">.</Button>
         
         <Button x:FieldModifier="private" x:Name="_button0"
-                Grid.Row="5" Grid.Column="1" FontWeight="Bold"
+                Grid.Row="6" Grid.Column="1" FontWeight="Bold"
                 Click="Button_Number_Click">0</Button>
         
         <Button x:FieldModifier="private" x:Name="_button1"
-                Grid.Row="4" Grid.Column="0" FontWeight="Bold"
+                Grid.Row="5" Grid.Column="0" FontWeight="Bold"
                 Click="Button_Number_Click">1</Button>
         
         <Button x:FieldModifier="private" x:Name="_button2"
-                Grid.Row="4" Grid.Column="1" FontWeight="Bold"
+                Grid.Row="5" Grid.Column="1" FontWeight="Bold"
                 Click="Button_Number_Click">2</Button>
         
         <Button x:FieldModifier="private" x:Name="_button3"
-                Grid.Row="4" Grid.Column="2" FontWeight="Bold"
+                Grid.Row="5" Grid.Column="2" FontWeight="Bold"
                 Click="Button_Number_Click">3</Button>
 
         <Button x:FieldModifier="private" x:Name="_button4"
-                Grid.Row="3" Grid.Column="0" FontWeight="Bold"
+                Grid.Row="4" Grid.Column="0" FontWeight="Bold"
                 Click="Button_Number_Click">4</Button>
         
         <Button x:FieldModifier="private" x:Name="_button5"
-                Grid.Row="3" Grid.Column="1" FontWeight="Bold"
+                Grid.Row="4" Grid.Column="1" FontWeight="Bold"
                 Click="Button_Number_Click">5</Button>
         
         <Button x:FieldModifier="private" x:Name="_button6"
-                Grid.Row="3" Grid.Column="2" FontWeight="Bold"
+                Grid.Row="4" Grid.Column="2" FontWeight="Bold"
                 Click="Button_Number_Click">6</Button>
 
         <Button x:FieldModifier="private" x:Name="_button7"
-                Grid.Row="2" Grid.Column="0" FontWeight="Bold"
+                Grid.Row="3" Grid.Column="0" FontWeight="Bold"
                 Click="Button_Number_Click">7</Button>
         
         <Button x:FieldModifier="private" x:Name="_button8"
-                Grid.Row="2" Grid.Column="1" FontWeight="Bold"
+                Grid.Row="3" Grid.Column="1" FontWeight="Bold"
                 Click="Button_Number_Click">8</Button>
         
         <Button x:FieldModifier="private" x:Name="_button9"
-                Grid.Row="2" Grid.Column="2" FontWeight="Bold"
+                Grid.Row="3" Grid.Column="2" FontWeight="Bold"
                 Click="Button_Number_Click">9</Button>
         
         <Button x:FieldModifier="private" x:Name="_buttonEquals"
-                Grid.Row="5" Grid.Column="3" FontWeight="Bold"
+                Grid.Row="6" Grid.Column="3" FontWeight="Bold"
                 Click="Button_Operation_Click">=</Button>
 
         <Button x:FieldModifier="private" x:Name="_buttonAddition"
-                Grid.Row="4" Grid.Column="3" FontWeight="Bold"
+                Grid.Row="5" Grid.Column="3" FontWeight="Bold"
                 Click="Button_Operation_Click">+</Button>
 
         <Button x:FieldModifier="private" x:Name="_buttonSubtract"
-                Grid.Row="3" Grid.Column="3" FontWeight="Bold"
+                Grid.Row="4" Grid.Column="3" FontWeight="Bold"
                 Click="Button_Operation_Click">-</Button>
 
         <Button x:FieldModifier="private" x:Name="_buttonMultiply"
-                Grid.Row="2" Grid.Column="3" FontWeight="Bold"
+                Grid.Row="3" Grid.Column="3" FontWeight="Bold"
                 Click="Button_Operation_Click">*</Button>
 
         <Button x:FieldModifier="private" x:Name="_buttonDivide"
-                Grid.Row="1" Grid.Column="3" FontWeight="Bold"
+                Grid.Row="2" Grid.Column="3" FontWeight="Bold"
                 Click="Button_Operation_Click">/</Button>
 
-        <!--<Button x:FieldModifier="private" x:Name="_buttonModulo"
-                Grid.Row="5" Grid.Column="2" FontWeight="Bold"
-                Click="Button_Operation_Click">%</Button>-->
+        <Button x:FieldModifier="private" x:Name="_buttonModulo"
+                Grid.Row="1" Grid.Column="3" FontWeight="Bold"
+                Click="Button_Operation_Click">%</Button>
 
-        <Button x:FieldModifier="private" x:Name="_buttonDecimal"
-                Grid.Row="5" Grid.Column="2" FontWeight="Bold"
-                Click="Button_Decimal_Click">.</Button>
-        
         <Button x:FieldModifier="private" x:Name="_buttonClearAll"
                 Grid.Row="1" Grid.Column="0" FontWeight="Bold"
                 Click="Button_ClearAll_Click">C</Button>
