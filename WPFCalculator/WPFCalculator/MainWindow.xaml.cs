@@ -197,8 +197,8 @@ namespace WPFCalculator
 
         private void Button_SquareRoot_Click(object sender, RoutedEventArgs e)
         {
-            _input = Math.Sqrt(Convert.ToDouble(_input)).ToString();
-            _textHistory.Text += $"Sqrt({_input}) +";
+            _input = Calculator.SquareRoot(Convert.ToDouble(_input)).ToString();
+            _textHistory.Text = $"Sqrt({_input})";
             UpdateOutputText();
         }
 
