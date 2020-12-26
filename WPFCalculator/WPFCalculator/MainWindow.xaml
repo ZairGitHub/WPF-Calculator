@@ -99,7 +99,7 @@
 
         <Button x:FieldModifier="private" x:Name="_buttonPercentage"
                 Grid.Row="2" Grid.Column="0" FontWeight="Bold"
-                Click="Button_Exponent_Click">1/x</Button>
+                Click="Button_Percentage_Click">1/x</Button>
         
         <Button x:FieldModifier="private" x:Name="_buttonExponent"
                 Grid.Row="2" Grid.Column="1" FontWeight="Bold"

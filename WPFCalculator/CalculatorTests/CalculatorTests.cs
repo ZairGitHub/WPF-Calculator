@@ -88,6 +88,27 @@ namespace CalculatorTests
             Assert.Equal(a % b, result);
         }
 
+        [InlineData(-1)]
+        [InlineData(1)]
+        [Theory]
+        public void Percentage_NumberIsNotZero_ReturnsNumberDividedBy1(double a)
+        {
+            var result = Calculator.Percentage(a);
+
+            Assert.Equal(1 / a, result);
+        }
+
+        [Fact]
+        public void Percentage_NumberIsZero_ThrowsArgumentExceptionWithCustomMessage()
+        {
+            double a = 0;
+
+            var result = Assert.Throws<DivideByZeroException>(() =>
+                Calculator.Percentage(a));
+
+            Assert.Equal("Cannot divide by zero", result.Message);
+        }
+
         [Fact]
         public void Exponent_ReturnsNumberWithExponentOf2()
         {
@@ -110,7 +131,7 @@ namespace CalculatorTests
         }
 
         [Fact]
-        public void SquareRoot_ReturnsSquareRootOfA()
+        public void SquareRoot_PositiveNumber_ReturnsSquareRootOfNumber()
         {
             double a = It.IsAny<int>();
 
