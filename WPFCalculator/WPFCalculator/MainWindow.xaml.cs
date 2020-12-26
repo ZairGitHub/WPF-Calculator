@@ -197,11 +197,10 @@ namespace WPFCalculator
 
         private void Button_SquareRoot_Click(object sender, RoutedEventArgs e)
         {
-            string text;
+            string text = $"Sqrt({_input})";
             try
             {
                 _input = Calculator.SquareRoot(Convert.ToDouble(_input)).ToString();
-                text = $"Sqrt({_input})";
             }
             catch (ArgumentException ex)
             {
