@@ -46,10 +46,9 @@ namespace CalculatorApp
         {
             if (a < 0)
             {
-                throw new ArgumentException("Can not square root negative numbers");
+                throw new ArgumentException("Cannot square root negative numbers");
             }
             return Math.Sqrt(a);
         }
-            
     }
 }
