@@ -27,5 +27,7 @@ namespace CalculatorApp
             }
             return a % b;
         }
+
+        public static double SquareRoot(double a) => Math.Sqrt(a);
     }
 }

@@ -199,7 +199,6 @@ namespace WPFCalculator
         {
             _input = Math.Sqrt(Convert.ToDouble(_input)).ToString();
             _textHistory.Text += $"Sqrt({_input}) +";
-            ResetInput();
             UpdateOutputText();
         }
 
