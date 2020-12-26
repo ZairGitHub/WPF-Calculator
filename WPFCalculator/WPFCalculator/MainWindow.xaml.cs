@@ -20,7 +20,7 @@ namespace WPFCalculator
     {
         private readonly List<object> _listHistory = new List<object>();
 
-        private double _input;
+        private string _input;
         private string _operation;
         private bool _isNewEquation;
 
@@ -33,13 +33,15 @@ namespace WPFCalculator
         private void ClearAll()
         {
             _listHistory.Clear();
-            _input = 0;
+            ResetInput();
             UpdateOutputText();
             ClearOperation();
             ClearHistoryText();
         }
 
-        private void UpdateOutputText() => _textOutput.Text = _input.ToString();
+        private void ResetInput() => _input = "0";
+
+        private void UpdateOutputText() => _textOutput.Text = _input;
 
         private void ClearOperation() => _operation = null;
         
@@ -47,13 +49,29 @@ namespace WPFCalculator
 
         private void Button_SignChange_Click(object sender, RoutedEventArgs e)
         {
-            _input = -_input;
+            if (_input[0] == '-')
+            {
+                _input = _input.Substring(1, _input.Length - 1);
+            }
+            else
+            {
+                _input = "-" + _input;
+            }
+
             if (_listHistory.Count > 0)
             {
                 _listHistory.Remove(_listHistory.Last());
                 _listHistory.Add(_input);
             }
             UpdateOutputText();
+        }
+
+        private void Button_Decimal_Click(object sender, RoutedEventArgs e)
+        {
+            if (!_input.Contains('.'))
+            {
+                _input += ".";
+            }
         }
 
         private void Button_Number_Click(object sender, RoutedEventArgs e)
@@ -65,7 +83,13 @@ namespace WPFCalculator
             {
                 PrepareNewEquationEnvironment(number);
             }
-            _input = (_input * 10) + number;
+
+            if (_input == "0")
+            {
+                _input = null;
+            }
+
+            _input += number;
             UpdateOutputText();
         }
 
@@ -91,13 +115,14 @@ namespace WPFCalculator
             {
                 PrepareNewEquationEnvironment(_operation);
             }
+
             _listHistory.Add(_input);
             _listHistory.Add(_operation);
             _textHistory.Text += $"{_input} {_operation} ";
 
             if (_operation != "=")
             {
-                _input = 0;
+                ResetInput();
                 ClearOperation();
                 UpdateOutputText();
             }
@@ -109,7 +134,7 @@ namespace WPFCalculator
 
         private void CalculateSum(List<object> listHistory)
         {
-            _input = Convert.ToDouble(listHistory[0]);
+            double sum = Convert.ToDouble(listHistory[0]);
             string operation = Convert.ToString(listHistory[1]);
             double number;
             bool hasException = false;
@@ -118,7 +143,7 @@ namespace WPFCalculator
                 if (hasException)
                 {
                     listHistory.Clear();
-                    _input = 0;
+                    sum = 0;
                     break;
                 }
 
@@ -128,18 +153,18 @@ namespace WPFCalculator
                     switch (operation)
                     {
                         case "+":
-                            _input = Calculator.Add(_input, number);
+                            sum = Calculator.Add(sum, number);
                             break;
                         case "-":
-                            _input = Calculator.Subtract(_input, number);
+                            sum = Calculator.Subtract(sum, number);
                             break;
                         case "*":
-                            _input = Calculator.Multiply(_input, number);
+                            sum = Calculator.Multiply(sum, number);
                             break;
                         case "/":
                             try
                             {
-                                _input = Calculator.Divide(_input, number);
+                                sum = Calculator.Divide(sum, number);
                             }
                             catch (DivideByZeroException e)
                             {
@@ -150,7 +175,7 @@ namespace WPFCalculator
                         case "%":
                             try
                             {
-                                _input = Calculator.Modulo(_input, number);
+                                sum = Calculator.Modulo(sum, number);
                             }
                             catch (DivideByZeroException e)
                             {
@@ -165,6 +190,7 @@ namespace WPFCalculator
                     operation = Convert.ToString(listHistory[i]);
                 }
             }
+            _input = sum.ToString();
             _isNewEquation = true;
             UpdateOutputText();
         }
@@ -176,21 +202,19 @@ namespace WPFCalculator
 
         private void Button_ClearEntry_Click(object sender, RoutedEventArgs e)
         {
-            _input = 0;
+            ResetInput();
             UpdateOutputText();
         }
 
         private void Button_Backspace_Click(object sender, RoutedEventArgs e)
         {
-            if (_input >= 10 || _input <= -10)
+            if (_input.Length > 1)
             {
-                string inputString = _input.ToString();
-                inputString = inputString.Substring(0, inputString.Length - 1);
-                _input = Convert.ToDouble(inputString);
+                _input = _input.Substring(0, _input.Length - 1);
             }
             else
             {
-                _input = 0;
+                ResetInput();
             }
             UpdateOutputText();
         }
