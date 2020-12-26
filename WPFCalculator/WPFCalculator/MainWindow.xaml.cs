@@ -181,6 +181,7 @@ namespace WPFCalculator
                     operation = Convert.ToString(listHistory[i]);
                 }
             }
+            _input = sum.ToString();
             _isNewEquation = true;
             UpdateOutputText();
         }
