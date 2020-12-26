@@ -196,7 +196,20 @@ namespace WPFCalculator
         }
 
         private void Button_Percentage_Click(object sender, RoutedEventArgs e)
-        { }
+        {
+            string text = $"1/{_input}";
+            try
+            {
+                _input = Calculator.Percentage(Convert.ToDouble(_input)).ToString();
+            }
+            catch (DivideByZeroException ex)
+            {
+                text = ex.Message;
+                ResetInput();
+            }
+            _textHistory.Text = text;
+            UpdateOutputText();
+        }
 
         private void Button_Exponent_Click(object sender, RoutedEventArgs e)
         {
