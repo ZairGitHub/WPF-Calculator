@@ -53,8 +53,10 @@ namespace CalculatorTests
         }
 
         [Theory]
+        [InlineData(double.MinValue)]
         [InlineData(-0.1)]
         [InlineData(0.1)]
+        [InlineData(double.MaxValue)]
         public void Divide_BIsNotZero_ReturnsADividedByB(double b)
         {
             double a = It.IsAny<double>();
@@ -77,8 +79,10 @@ namespace CalculatorTests
         }
 
         [Theory]
+        [InlineData(double.MinValue)]
         [InlineData(-0.1)]
         [InlineData(0.1)]
+        [InlineData(double.MaxValue)]
         public void Modulo_BIsNotZero_ReturnsAModuloB(double b)
         {
             double a = It.IsAny<double>();
@@ -86,16 +90,6 @@ namespace CalculatorTests
             var result = Calculator.Modulo(a, b);
 
             Assert.Equal(a % b, result);
-        }
-
-        [InlineData(-0.1)]
-        [InlineData(0.1)]
-        [Theory]
-        public void Percentage_NumberIsNotZero_ReturnsNumberDividedBy1(double a)
-        {
-            var result = Calculator.Percentage(a);
-
-            Assert.Equal(1 / a, result);
         }
 
         [Fact]
@@ -109,6 +103,18 @@ namespace CalculatorTests
             Assert.Equal("Cannot divide by zero", result.Message);
         }
 
+        [Theory]
+        [InlineData(double.MinValue)]
+        [InlineData(-0.1)]
+        [InlineData(0.1)]
+        [InlineData(double.MaxValue)]
+        public void Percentage_NumberIsNotZero_ReturnsNumberDividedBy1(double a)
+        {
+            var result = Calculator.Percentage(a);
+
+            Assert.Equal(1 / a, result);
+        }
+
         [Fact]
         public void Exponent_ReturnsNumberWithExponentOf2()
         {
@@ -119,11 +125,11 @@ namespace CalculatorTests
             Assert.Equal(Math.Pow(a, 2), result);
         }
 
-        [Fact]
-        public void SquareRoot_NumberIsNegative_ThrowsArgumentExceptionWithCustomMessage()
+        [Theory]
+        [InlineData(double.MinValue)]
+        [InlineData(-0.1)]
+        public void SquareRoot_NumberIsNegative_ThrowsArgumentExceptionWithCustomMessage(double a)
         {
-            double a = -1;
-
             var result = Assert.Throws<ArgumentException>(() =>
                 Calculator.SquareRoot(a));
 
@@ -133,6 +139,7 @@ namespace CalculatorTests
         [Theory]
         [InlineData(0.0)]
         [InlineData(0.1)]
+        [InlineData(double.MaxValue)]
         public void SquareRoot_NumberIsZeroOrPositive_ReturnsSquareRootOfNumber(double a)
         {
             var result = Calculator.SquareRoot(a);
