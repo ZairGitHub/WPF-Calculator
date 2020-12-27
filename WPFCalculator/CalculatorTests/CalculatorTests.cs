@@ -53,8 +53,8 @@ namespace CalculatorTests
         }
 
         [Theory]
-        [InlineData(-1)]
-        [InlineData(1)]
+        [InlineData(-0.1)]
+        [InlineData(0.1)]
         public void Divide_BIsNotZero_ReturnsADividedByB(double b)
         {
             double a = It.IsAny<double>();
@@ -77,8 +77,8 @@ namespace CalculatorTests
         }
 
         [Theory]
-        [InlineData(-1)]
-        [InlineData(1)]
+        [InlineData(-0.1)]
+        [InlineData(0.1)]
         public void Modulo_BIsNotZero_ReturnsAModuloB(double b)
         {
             double a = It.IsAny<double>();
@@ -88,8 +88,8 @@ namespace CalculatorTests
             Assert.Equal(a % b, result);
         }
 
-        [InlineData(-1)]
-        [InlineData(1)]
+        [InlineData(-0.1)]
+        [InlineData(0.1)]
         [Theory]
         public void Percentage_NumberIsNotZero_ReturnsNumberDividedBy1(double a)
         {
@@ -120,7 +120,7 @@ namespace CalculatorTests
         }
 
         [Fact]
-        public void SquareRoot_NegativeNumber_ThrowsArgumentExceptionWithCustomMessage()
+        public void SquareRoot_NumberIsNegative_ThrowsArgumentExceptionWithCustomMessage()
         {
             double a = -1;
 
@@ -130,11 +130,11 @@ namespace CalculatorTests
             Assert.Equal("Cannot square root negative numbers", result.Message);
         }
 
-        [Fact]
-        public void SquareRoot_PositiveNumber_ReturnsSquareRootOfNumber()
+        [Theory]
+        [InlineData(0.0)]
+        [InlineData(0.1)]
+        public void SquareRoot_NumberIsZeroOrPositive_ReturnsSquareRootOfNumber(double a)
         {
-            double a = It.IsAny<double>();
-
             var result = Calculator.SquareRoot(a);
 
             Assert.Equal(Math.Sqrt(a), result);
