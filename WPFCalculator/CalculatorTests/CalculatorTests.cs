@@ -44,7 +44,7 @@ namespace CalculatorTests
         public void Divide_BIsZero_ThrowsDivideByZeroExceptionWithCustomMessage()
         {
             double a = It.IsAny<double>();
-            double b = 0.0;
+            double b = 0;
 
             var result = Assert.Throws<DivideByZeroException>(() =>
                 Calculator.Divide(a, b));
@@ -70,7 +70,7 @@ namespace CalculatorTests
         public void Modulo_BIsZero_ThrowsDivideByZeroExceptionWithCustomMessage()
         {
             double a = It.IsAny<double>();
-            double b = 0.0;
+            double b = 0;
 
             var result = Assert.Throws<DivideByZeroException>(() =>
                 Calculator.Modulo(a, b));
@@ -95,7 +95,7 @@ namespace CalculatorTests
         [Fact]
         public void Percentage_NumberIsZero_ThrowsArgumentExceptionWithCustomMessage()
         {
-            double a = 0.0;
+            double a = 0;
 
             var result = Assert.Throws<DivideByZeroException>(() =>
                 Calculator.Percentage(a));
@@ -137,7 +137,7 @@ namespace CalculatorTests
         }
 
         [Theory]
-        [InlineData(0.0)]
+        [InlineData(0)]
         [InlineData(double.Epsilon)]
         [InlineData(double.MaxValue)]
         public void SquareRoot_NumberIsZeroOrPositive_ReturnsSquareRootOfNumber(double a)
