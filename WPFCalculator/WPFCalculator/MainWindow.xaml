@@ -107,7 +107,7 @@
         
         <Button x:FieldModifier="private" x:Name="_buttonSquareRoot"
                 Grid.Row="2" Grid.Column="2" FontWeight="Bold"
-                Click="Button_SquareRoot_Click">Sqrt</Button>
+                Click="Button_Operation_Click">Sqrt</Button>
 
         <Button x:FieldModifier="private" x:Name="_buttonClearAll"
                 Grid.Row="1" Grid.Column="0" FontWeight="Bold"

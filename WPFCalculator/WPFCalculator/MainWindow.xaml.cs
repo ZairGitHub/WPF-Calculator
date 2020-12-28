@@ -68,7 +68,7 @@ namespace WPFCalculator
 
         private void Button_Decimal_Click(object sender, RoutedEventArgs e)
         {
-            if (!_input.Contains('.'))
+            if (!_input.Contains("."))
             {
                 _input += ".";
             }
@@ -116,14 +116,17 @@ namespace WPFCalculator
                 PrepareNewEquationEnvironment(_operation);
             }
 
-            if (_operation.Contains('^'))
-            {
-                _operation = "^";
-            }
-
             if (_operation.Contains("1/"))
             {
                 _operation = "1/";
+            }
+            else if (_operation.Contains("^"))
+            {
+                _operation = "^";
+            }
+            else if (_operation.Contains("Sqrt"))
+            {
+                _operation = "Sqrt";
             }
 
             _listHistory.Add(_input);
@@ -132,14 +135,14 @@ namespace WPFCalculator
 
             CalculateSum(_listHistory);
 
-            if (_operation != "=")
+            if (_operation == "=")
             {
-                ResetInput();
-                ClearOperation();
+                _isNewEquation = true;
             }
             else
             {
-                _isNewEquation = true;
+                ResetInput();
+                ClearOperation();
             }
         }
 
@@ -224,26 +227,22 @@ namespace WPFCalculator
                             }
                             isSingleOperation = true;
                             break;
+                        case "Sqrt":
+                            try
+                            {
+                                sum = Calculator.SquareRoot(sum);
+                            }
+                            catch (ArgumentException ex)
+                            {
+                                _textHistory.Text = ex.Message;
+                                hasException = true;
+                            }
+                            isSingleOperation = true;
+                            break;
                     }
                 }
             }
             _input = sum.ToString();
-            UpdateOutputText();
-        }
-
-        private void Button_SquareRoot_Click(object sender, RoutedEventArgs e)
-        {
-            string text = $"Sqrt({_input})";
-            try
-            {
-                _input = Calculator.SquareRoot(Convert.ToDouble(_input)).ToString();
-            }
-            catch (ArgumentException ex)
-            {
-                text = ex.Message;
-                ResetInput();
-            }
-            _textHistory.Text = text;
             UpdateOutputText();
         }
 
