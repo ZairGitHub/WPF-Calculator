@@ -49,21 +49,24 @@ namespace WPFCalculator
 
         private void Button_SignChange_Click(object sender, RoutedEventArgs e)
         {
-            if (_input[0] == '-')
+            if (Convert.ToDouble(_input) != 0)
             {
-                _input = _input.Substring(1, _input.Length - 1);
-            }
-            else
-            {
-                _input = "-" + _input;
-            }
+                if (_input[0] == '-')
+                {
+                    _input = _input.Substring(1, _input.Length - 1);
+                }
+                else
+                {
+                    _input = "-" + _input;
+                }
 
-            if (_listHistory.Count > 0)
-            {
-                _listHistory.Remove(_listHistory.Last());
-                _listHistory.Add(_input);
+                if (_listHistory.Count > 0)
+                {
+                    _listHistory.Remove(_listHistory.Last());
+                    _listHistory.Add(_input);
+                }
+                UpdateOutputText();
             }
-            UpdateOutputText();
         }
 
         private void Button_Decimal_Click(object sender, RoutedEventArgs e)
@@ -262,6 +265,11 @@ namespace WPFCalculator
                 _input = _input.Substring(0, _input.Length - 1);
             }
             else
+            {
+                ResetInput();
+            }
+
+            if (_input == "-")
             {
                 ResetInput();
             }
