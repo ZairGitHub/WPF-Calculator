@@ -269,9 +269,9 @@ namespace WPFCalculator
                 ResetInput();
             }
 
-            if (_input == "-")
+            if (_input[0] == '-' && Convert.ToDouble(_input) == 0)
             {
-                ResetInput();
+                _input = _input.Substring(1, _input.Length - 1);
             }
             UpdateOutputText();
         }
