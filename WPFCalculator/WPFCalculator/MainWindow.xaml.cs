@@ -121,6 +121,11 @@ namespace WPFCalculator
                 _operation = "^";
             }
 
+            if (_operation.Contains("1/"))
+            {
+                _operation = "R";
+            }
+
             _listHistory.Add(_input);
             _listHistory.Add(_operation);
             _textHistory.Text += $"{_input} {_operation} ";
@@ -141,10 +146,11 @@ namespace WPFCalculator
         private void CalculateSum(List<object> listHistory)
         {
             double sum = Convert.ToDouble(listHistory[0]);
-            string operation = Convert.ToString(listHistory[1]);
-            double number;
+            string operation = null;
+            double number = 0;
             bool hasException = false;
-            for (int i = 2; i < listHistory.Count; i++)
+            bool isSingleOperation = false;
+            for (int i = 1; i < listHistory.Count; i++)
             {
                 if (hasException)
                 {
@@ -153,9 +159,14 @@ namespace WPFCalculator
                     break;
                 }
 
+                if (isSingleOperation)
+                {
+                    continue;
+                }
+
                 if (i % 2 == 0)
                 {
-                    number = Convert.ToDouble(listHistory[i]);
+                    //number = Convert.ToDouble(listHistory[i]);
                     switch (operation)
                     {
                         case "+":
@@ -197,6 +208,20 @@ namespace WPFCalculator
                 else
                 {
                     operation = Convert.ToString(listHistory[i]);
+
+                    if (operation == "R")
+                    {
+                        try
+                        {
+                            sum = Calculator.Reciprocal(sum);
+                        }
+                        catch (DivideByZeroException ex)
+                        {
+                            _textHistory.Text = ex.Message;
+                            hasException = true;
+                        }
+                        isSingleOperation = true;
+                    }
                 }
             }
             _input = sum.ToString();
