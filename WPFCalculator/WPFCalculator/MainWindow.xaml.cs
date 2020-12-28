@@ -127,6 +127,7 @@ namespace WPFCalculator
                 _operation = "Sqrt";
                 _isNewEquation = true;
             }
+
             if (_isNewEquation)
             {
                 _textHistory.Text += $"{_operation}({_input}) ";
