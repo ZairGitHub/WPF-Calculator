@@ -231,22 +231,6 @@ namespace WPFCalculator
             UpdateOutputText();
         }
 
-        private void Button_Reciprocal_Click(object sender, RoutedEventArgs e)
-        {
-            string text = $"1/{_input}";
-            try
-            {
-                _input = Calculator.Reciprocal(Convert.ToDouble(_input)).ToString();
-            }
-            catch (DivideByZeroException ex)
-            {
-                text = ex.Message;
-                ResetInput();
-            }
-            _textHistory.Text = text;
-            UpdateOutputText();
-        }
-
         private void Button_SquareRoot_Click(object sender, RoutedEventArgs e)
         {
             string text = $"Sqrt({_input})";
