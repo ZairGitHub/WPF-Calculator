@@ -203,7 +203,7 @@ namespace WPFCalculator
             UpdateOutputText();
         }
 
-        private void Button_Percentage_Click(object sender, RoutedEventArgs e)
+        private void Button_Reciprocal_Click(object sender, RoutedEventArgs e)
         {
             string text = $"1/{_input}";
             try
