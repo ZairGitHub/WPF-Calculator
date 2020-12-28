@@ -81,7 +81,7 @@ namespace WPFCalculator
 
             if (_isNewEquation)
             {
-                PrepareNewEquationEnvironment(number);
+                ClearHistoryForNewEquation(number);
             }
 
             if (_input == "0")
@@ -93,9 +93,9 @@ namespace WPFCalculator
             UpdateOutputText();
         }
 
-        private void PrepareNewEquationEnvironment(object buttonClick)
+        private void ClearHistoryForNewEquation(object buttonContent)
         {
-            if (buttonClick is double)
+            if (buttonContent is double)
             {
                 ClearAll();
             }
@@ -113,7 +113,7 @@ namespace WPFCalculator
 
             if (_isNewEquation)
             {
-                PrepareNewEquationEnvironment(_operation);
+                ClearHistoryForNewEquation(_operation);
             }
 
             if (_operation.Contains("1/"))
