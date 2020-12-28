@@ -168,7 +168,37 @@ namespace WPFCalculator
                     continue;
                 }
 
-                if (i % 2 == 0)
+                if (i % 2 != 0)
+                {
+                    operation = Convert.ToString(listHistory[i]);
+                    if (operation == "1/")
+                    {
+                        try
+                        {
+                            sum = Calculator.Reciprocal(sum);
+                        }
+                        catch (DivideByZeroException ex)
+                        {
+                            _textHistory.Text = ex.Message;
+                            hasException = true;
+                        }
+                        isSingleOperation = true;
+                    }
+                    else if (operation == "Sqrt")
+                    {
+                        try
+                        {
+                            sum = Calculator.SquareRoot(sum);
+                        }
+                        catch (ArgumentException ex)
+                        {
+                            _textHistory.Text = ex.Message;
+                            hasException = true;
+                        }
+                        isSingleOperation = true;
+                    }
+                }
+                else
                 {
                     number = Convert.ToDouble(listHistory[i]);
                     switch (operation)
@@ -206,38 +236,6 @@ namespace WPFCalculator
                             break;
                         case "^":
                             sum = Calculator.Exponent(sum, number);
-                            break;
-                    }
-                }
-                else
-                {
-                    operation = Convert.ToString(listHistory[i]);
-
-                    switch (operation)
-                    {
-                        case "1/":
-                            try
-                            {
-                                sum = Calculator.Reciprocal(sum);
-                            }
-                            catch (DivideByZeroException ex)
-                            {
-                                _textHistory.Text = ex.Message;
-                                hasException = true;
-                            }
-                            isSingleOperation = true;
-                            break;
-                        case "Sqrt":
-                            try
-                            {
-                                sum = Calculator.SquareRoot(sum);
-                            }
-                            catch (ArgumentException ex)
-                            {
-                                _textHistory.Text = ex.Message;
-                                hasException = true;
-                            }
-                            isSingleOperation = true;
                             break;
                     }
                 }
