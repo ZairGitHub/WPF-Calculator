@@ -28,7 +28,7 @@ namespace CalculatorApp
             return a % b;
         }
 
-        public static double Percentage(double a)
+        public static double Reciprocal(double a)
         {
             if (a == 0)
             {

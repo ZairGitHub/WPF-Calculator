@@ -208,7 +208,7 @@ namespace WPFCalculator
             string text = $"1/{_input}";
             try
             {
-                _input = Calculator.Percentage(Convert.ToDouble(_input)).ToString();
+                _input = Calculator.Reciprocal(Convert.ToDouble(_input)).ToString();
             }
             catch (DivideByZeroException ex)
             {

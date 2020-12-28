@@ -98,7 +98,7 @@ namespace CalculatorTests
             double a = 0;
 
             var result = Assert.Throws<DivideByZeroException>(() =>
-                Calculator.Percentage(a));
+                Calculator.Reciprocal(a));
 
             Assert.Equal("Cannot divide by zero", result.Message);
         }
@@ -110,7 +110,7 @@ namespace CalculatorTests
         [InlineData(double.MaxValue)]
         public void Percentage_NumberIsNotZero_ReturnsNumberDividedBy1(double a)
         {
-            var result = Calculator.Percentage(a);
+            var result = Calculator.Reciprocal(a);
 
             Assert.Equal(1 / a, result);
         }
