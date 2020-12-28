@@ -37,8 +37,6 @@ namespace CalculatorApp
             return 1 / a;
         }
         
-        public static double Exponent2(double a) => Math.Pow(a, 2);
-        
         public static double Exponent(double a, double b) => Math.Pow(a, b);
         
         public static double SquareRoot(double a)
