@@ -93,7 +93,7 @@ namespace CalculatorTests
         }
 
         [Fact]
-        public void Percentage_NumberIsZero_ThrowsArgumentExceptionWithCustomMessage()
+        public void Reciprocal_NumberIsZero_ThrowsArgumentExceptionWithCustomMessage()
         {
             double a = 0;
 
@@ -108,7 +108,7 @@ namespace CalculatorTests
         [InlineData(-double.Epsilon)]
         [InlineData(double.Epsilon)]
         [InlineData(double.MaxValue)]
-        public void Percentage_NumberIsNotZero_ReturnsNumberDividedBy1(double a)
+        public void Reciprocal_NumberIsNotZero_ReturnsNumberDividedBy1(double a)
         {
             var result = Calculator.Reciprocal(a);
 
