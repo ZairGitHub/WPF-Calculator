@@ -123,7 +123,7 @@ namespace WPFCalculator
 
             if (_operation.Contains("1/"))
             {
-                _operation = "R";
+                _operation = "1/";
             }
 
             _listHistory.Add(_input);
@@ -147,7 +147,7 @@ namespace WPFCalculator
         {
             double sum = Convert.ToDouble(listHistory[0]);
             string operation = null;
-            double number = 0;
+            double number;
             bool hasException = false;
             bool isSingleOperation = false;
             for (int i = 1; i < listHistory.Count; i++)
@@ -161,12 +161,13 @@ namespace WPFCalculator
 
                 if (isSingleOperation)
                 {
+                    isSingleOperation = false;
                     continue;
                 }
 
                 if (i % 2 == 0)
                 {
-                    //number = Convert.ToDouble(listHistory[i]);
+                    number = Convert.ToDouble(listHistory[i]);
                     switch (operation)
                     {
                         case "+":
@@ -209,18 +210,20 @@ namespace WPFCalculator
                 {
                     operation = Convert.ToString(listHistory[i]);
 
-                    if (operation == "R")
+                    switch (operation)
                     {
-                        try
-                        {
-                            sum = Calculator.Reciprocal(sum);
-                        }
-                        catch (DivideByZeroException ex)
-                        {
-                            _textHistory.Text = ex.Message;
-                            hasException = true;
-                        }
-                        isSingleOperation = true;
+                        case "1/":
+                            try
+                            {
+                                sum = Calculator.Reciprocal(sum);
+                            }
+                            catch (DivideByZeroException ex)
+                            {
+                                _textHistory.Text = ex.Message;
+                                hasException = true;
+                            }
+                            isSingleOperation = true;
+                            break;
                     }
                 }
             }
