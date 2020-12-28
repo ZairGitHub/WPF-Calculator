@@ -125,15 +125,16 @@ namespace WPFCalculator
             _listHistory.Add(_operation);
             _textHistory.Text += $"{_input} {_operation} ";
 
+            CalculateSum(_listHistory);
+
             if (_operation != "=")
             {
                 ResetInput();
                 ClearOperation();
-                UpdateOutputText();
             }
             else
             {
-                CalculateSum(_listHistory);
+                _isNewEquation = true;
             }
         }
 
@@ -199,7 +200,6 @@ namespace WPFCalculator
                 }
             }
             _input = sum.ToString();
-            _isNewEquation = true;
             UpdateOutputText();
         }
 
