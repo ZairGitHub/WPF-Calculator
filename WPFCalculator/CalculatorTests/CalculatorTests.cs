@@ -120,7 +120,7 @@ namespace CalculatorTests
         {
             double a  = It.IsAny<double>();
 
-            var result = Calculator.Exponent(a);
+            var result = Calculator.Exponent2(a);
 
             Assert.Equal(Math.Pow(a, 2), result);
         }

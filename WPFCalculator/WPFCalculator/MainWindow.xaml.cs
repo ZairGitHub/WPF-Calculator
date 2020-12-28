@@ -183,6 +183,9 @@ namespace WPFCalculator
                                 hasException = true;
                             }
                             break;
+                        case "^":
+                            sum = Calculator.Exponent(sum, number);
+                            break;
                     }
                 }
                 else
@@ -214,7 +217,7 @@ namespace WPFCalculator
         private void Button_Exponent_Click(object sender, RoutedEventArgs e)
         {
             _textHistory.Text = $"^ {_input}";
-            _input = Calculator.Exponent(Convert.ToDouble(_input)).ToString();
+            _input = Calculator.Exponent2(Convert.ToDouble(_input)).ToString();
             UpdateOutputText();
         }
 
