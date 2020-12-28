@@ -116,6 +116,7 @@ namespace WPFCalculator
             if (_operation.Contains("1/"))
             {
                 _operation = "1/";
+                _isNewEquation = true;
             }
             else if (_operation.Contains("^"))
             {
@@ -124,12 +125,19 @@ namespace WPFCalculator
             else if (_operation.Contains("Sqrt"))
             {
                 _operation = "Sqrt";
+                _isNewEquation = true;
+            }
+            if (_isNewEquation)
+            {
+                _textHistory.Text += $"{_operation}({_input}) ";
+            }
+            else
+            {
+                _textHistory.Text += $"{_input} {_operation} ";
             }
 
             _listHistory.Add(_input);
             _listHistory.Add(_operation);
-            _textHistory.Text += $"{_input} {_operation} ";
-
             CalculateSum(_listHistory);
 
             if (_operation == "=")
