@@ -59,12 +59,6 @@ namespace WPFCalculator
                 {
                     _input = "-" + _input;
                 }
-
-                if (_listHistory.Count > 0)
-                {
-                    _listHistory.Remove(_listHistory.Last());
-                    _listHistory.Add(_input);
-                }
                 UpdateOutputText();
             }
         }
