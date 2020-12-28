@@ -103,7 +103,7 @@
         
         <Button x:FieldModifier="private" x:Name="_buttonExponent"
                 Grid.Row="2" Grid.Column="1" FontWeight="Bold"
-                Click="Button_Exponent_Click">x^</Button>
+                Click="Button_Operation_Click">x^</Button>
         
         <Button x:FieldModifier="private" x:Name="_buttonSquareRoot"
                 Grid.Row="2" Grid.Column="2" FontWeight="Bold"

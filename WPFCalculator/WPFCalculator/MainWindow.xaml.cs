@@ -116,6 +116,11 @@ namespace WPFCalculator
                 PrepareNewEquationEnvironment(_operation);
             }
 
+            if (_operation.Contains('^'))
+            {
+                _operation = "^";
+            }
+
             _listHistory.Add(_input);
             _listHistory.Add(_operation);
             _textHistory.Text += $"{_input} {_operation} ";
@@ -183,6 +188,9 @@ namespace WPFCalculator
                                 hasException = true;
                             }
                             break;
+                        case "^":
+                            sum = Calculator.Exponent(sum, number);
+                            break;
                     }
                 }
                 else
@@ -208,13 +216,6 @@ namespace WPFCalculator
                 ResetInput();
             }
             _textHistory.Text = text;
-            UpdateOutputText();
-        }
-
-        private void Button_Exponent_Click(object sender, RoutedEventArgs e)
-        {
-            _textHistory.Text = $"^ {_input}";
-            _input = Calculator.Exponent(Convert.ToDouble(_input)).ToString();
             UpdateOutputText();
         }
 
