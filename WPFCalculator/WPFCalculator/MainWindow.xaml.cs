@@ -246,22 +246,6 @@ namespace WPFCalculator
             UpdateOutputText();
         }
 
-        private void Button_SquareRoot_Click(object sender, RoutedEventArgs e)
-        {
-            string text = $"Sqrt({_input})";
-            try
-            {
-                _input = Calculator.SquareRoot(Convert.ToDouble(_input)).ToString();
-            }
-            catch (ArgumentException ex)
-            {
-                text = ex.Message;
-                ResetInput();
-            }
-            _textHistory.Text = text;
-            UpdateOutputText();
-        }
-
         private void Button_ClearAll_Click(object sender, RoutedEventArgs e)
         {
             ClearAll();
