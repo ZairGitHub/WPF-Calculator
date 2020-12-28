@@ -121,6 +121,11 @@ namespace WPFCalculator
                 _operation = "^";
             }
 
+            if (_operation.Contains("1/"))
+            {
+                _operation = "1/";
+            }
+
             _listHistory.Add(_input);
             _listHistory.Add(_operation);
             _textHistory.Text += $"{_input} {_operation} ";
@@ -141,16 +146,23 @@ namespace WPFCalculator
         private void CalculateSum(List<object> listHistory)
         {
             double sum = Convert.ToDouble(listHistory[0]);
-            string operation = Convert.ToString(listHistory[1]);
+            string operation = null;
             double number;
             bool hasException = false;
-            for (int i = 2; i < listHistory.Count; i++)
+            bool isSingleOperation = false;
+            for (int i = 1; i < listHistory.Count; i++)
             {
                 if (hasException)
                 {
                     listHistory.Clear();
                     sum = 0;
                     break;
+                }
+
+                if (isSingleOperation)
+                {
+                    isSingleOperation = false;
+                    continue;
                 }
 
                 if (i % 2 == 0)
@@ -197,25 +209,25 @@ namespace WPFCalculator
                 else
                 {
                     operation = Convert.ToString(listHistory[i]);
+
+                    switch (operation)
+                    {
+                        case "1/":
+                            try
+                            {
+                                sum = Calculator.Reciprocal(sum);
+                            }
+                            catch (DivideByZeroException ex)
+                            {
+                                _textHistory.Text = ex.Message;
+                                hasException = true;
+                            }
+                            isSingleOperation = true;
+                            break;
+                    }
                 }
             }
             _input = sum.ToString();
-            UpdateOutputText();
-        }
-
-        private void Button_Reciprocal_Click(object sender, RoutedEventArgs e)
-        {
-            string text = $"1/{_input}";
-            try
-            {
-                _input = Calculator.Reciprocal(Convert.ToDouble(_input)).ToString();
-            }
-            catch (DivideByZeroException ex)
-            {
-                text = ex.Message;
-                ResetInput();
-            }
-            _textHistory.Text = text;
             UpdateOutputText();
         }
 
