@@ -227,6 +227,18 @@ namespace WPFCalculator
                             }
                             isSingleOperation = true;
                             break;
+                        case "Sqrt":
+                            try
+                            {
+                                sum = Calculator.SquareRoot(sum);
+                            }
+                            catch (ArgumentException ex)
+                            {
+                                _textHistory.Text = ex.Message;
+                                hasException = true;
+                            }
+                            isSingleOperation = true;
+                            break;
                     }
                 }
             }
