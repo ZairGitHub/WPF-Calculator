@@ -116,13 +116,14 @@ namespace CalculatorTests
         }
 
         [Fact]
-        public void Exponent_ReturnsNumberWithExponentOf2()
+        public void Exponent_ReturnsAWithExponentOfB()
         {
             double a  = It.IsAny<double>();
+            double b = It.IsAny<double>();
 
-            var result = Calculator.Exponent2(a);
+            var result = Calculator.Exponent(a, b);
 
-            Assert.Equal(Math.Pow(a, 2), result);
+            Assert.Equal(Math.Pow(a, b), result);
         }
 
         [Theory]
