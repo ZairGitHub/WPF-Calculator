@@ -24,99 +24,99 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Button x:FieldModifier="private" x:Name="_buttonSignChange"
+        <Button x:Name="_buttonSignChange" x:FieldModifier="private"
                 Grid.Row="6" Grid.Column="0" FontWeight="Bold"
                 Click="Button_SignChange_Click">+/-</Button>
 
-        <Button x:FieldModifier="private" x:Name="_buttonDecimal"
+        <Button x:Name="_buttonDecimal" x:FieldModifier="private"
                 Grid.Row="6" Grid.Column="2" FontWeight="Bold"
                 Click="Button_Decimal_Click">.</Button>
-        
-        <Button x:FieldModifier="private" x:Name="_button0"
+
+        <Button x:Name="_button0" x:FieldModifier="private"
                 Grid.Row="6" Grid.Column="1" FontWeight="Bold"
                 Click="Button_Number_Click">0</Button>
-        
-        <Button x:FieldModifier="private" x:Name="_button1"
+
+        <Button x:Name="_button1" x:FieldModifier="private"
                 Grid.Row="5" Grid.Column="0" FontWeight="Bold"
                 Click="Button_Number_Click">1</Button>
-        
-        <Button x:FieldModifier="private" x:Name="_button2"
+
+        <Button x:Name="_button2" x:FieldModifier="private"
                 Grid.Row="5" Grid.Column="1" FontWeight="Bold"
                 Click="Button_Number_Click">2</Button>
-        
-        <Button x:FieldModifier="private" x:Name="_button3"
+
+        <Button x:Name="_button3" x:FieldModifier="private"
                 Grid.Row="5" Grid.Column="2" FontWeight="Bold"
                 Click="Button_Number_Click">3</Button>
 
-        <Button x:FieldModifier="private" x:Name="_button4"
+        <Button x:Name="_button4" x:FieldModifier="private"
                 Grid.Row="4" Grid.Column="0" FontWeight="Bold"
                 Click="Button_Number_Click">4</Button>
-        
-        <Button x:FieldModifier="private" x:Name="_button5"
+
+        <Button x:Name="_button5" x:FieldModifier="private"
                 Grid.Row="4" Grid.Column="1" FontWeight="Bold"
                 Click="Button_Number_Click">5</Button>
-        
-        <Button x:FieldModifier="private" x:Name="_button6"
+
+        <Button x:Name="_button6" x:FieldModifier="private"
                 Grid.Row="4" Grid.Column="2" FontWeight="Bold"
                 Click="Button_Number_Click">6</Button>
 
-        <Button x:FieldModifier="private" x:Name="_button7"
+        <Button x:Name="_button7" x:FieldModifier="private"
                 Grid.Row="3" Grid.Column="0" FontWeight="Bold"
                 Click="Button_Number_Click">7</Button>
-        
-        <Button x:FieldModifier="private" x:Name="_button8"
+
+        <Button x:Name="_button8" x:FieldModifier="private"
                 Grid.Row="3" Grid.Column="1" FontWeight="Bold"
                 Click="Button_Number_Click">8</Button>
-        
-        <Button x:FieldModifier="private" x:Name="_button9"
+
+        <Button x:Name="_button9" x:FieldModifier="private"
                 Grid.Row="3" Grid.Column="2" FontWeight="Bold"
                 Click="Button_Number_Click">9</Button>
-        
-        <Button x:FieldModifier="private" x:Name="_buttonEquals"
+
+        <Button x:Name="_buttonEquals" x:FieldModifier="private"
                 Grid.Row="6" Grid.Column="3" FontWeight="Bold"
                 Click="Button_Operation_Click">=</Button>
 
-        <Button x:FieldModifier="private" x:Name="_buttonAddition"
+        <Button x:Name="_buttonAddition" x:FieldModifier="private"
                 Grid.Row="5" Grid.Column="3" FontWeight="Bold"
                 Click="Button_Operation_Click">+</Button>
 
-        <Button x:FieldModifier="private" x:Name="_buttonSubtract"
+        <Button x:Name="_buttonSubtract" x:FieldModifier="private"
                 Grid.Row="4" Grid.Column="3" FontWeight="Bold"
                 Click="Button_Operation_Click">-</Button>
 
-        <Button x:FieldModifier="private" x:Name="_buttonMultiply"
+        <Button x:Name="_buttonMultiply" x:FieldModifier="private"
                 Grid.Row="3" Grid.Column="3" FontWeight="Bold"
                 Click="Button_Operation_Click">*</Button>
 
-        <Button x:FieldModifier="private" x:Name="_buttonDivide"
+        <Button x:Name="_buttonDivide" x:FieldModifier="private"
                 Grid.Row="2" Grid.Column="3" FontWeight="Bold"
                 Click="Button_Operation_Click">/</Button>
 
-        <Button x:FieldModifier="private" x:Name="_buttonModulo"
+        <Button x:Name="_buttonModulo" x:FieldModifier="private"
                 Grid.Row="1" Grid.Column="3" FontWeight="Bold"
                 Click="Button_Operation_Click">%</Button>
 
-        <Button x:FieldModifier="private" x:Name="_buttonReciprocal"
+        <Button x:Name="_buttonReciprocal" x:FieldModifier="private"
                 Grid.Row="2" Grid.Column="0" FontWeight="Bold"
                 Click="Button_Operation_Click">1/x</Button>
-        
-        <Button x:FieldModifier="private" x:Name="_buttonExponent"
+
+        <Button x:Name="_buttonExponent" x:FieldModifier="private"
                 Grid.Row="2" Grid.Column="1" FontWeight="Bold"
                 Click="Button_Operation_Click">x^</Button>
-        
-        <Button x:FieldModifier="private" x:Name="_buttonSquareRoot"
+
+        <Button x:Name="_buttonSquareRoot" x:FieldModifier="private"
                 Grid.Row="2" Grid.Column="2" FontWeight="Bold"
                 Click="Button_Operation_Click">Sqrt</Button>
 
-        <Button x:FieldModifier="private" x:Name="_buttonClearAll"
+        <Button x:Name="_buttonClearAll" x:FieldModifier="private"
                 Grid.Row="1" Grid.Column="0" FontWeight="Bold"
                 Click="Button_ClearAll_Click">C</Button>
-        
-        <Button x:FieldModifier="private" x:Name="_buttonClearEntry"
+
+        <Button x:Name="_buttonClearEntry" x:FieldModifier="private"
                 Grid.Row="1" Grid.Column="1" FontWeight="Bold"
                 Click="Button_ClearEntry_Click">CE</Button>
-        
-        <Button x:FieldModifier="private" x:Name="_buttonBackspace"
+
+        <Button x:Name="_buttonBackspace" x:FieldModifier="private"
                 Grid.Row="1" Grid.Column="2" FontWeight="Bold"
                 Click="Button_Backspace_Click">DEL</Button>
 
