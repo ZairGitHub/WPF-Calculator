@@ -153,6 +153,7 @@ namespace WPFCalculator
             {
                 if (hasException)
                 {
+                    _isNewEquation = true;
                     listHistory.Clear();
                     sum = 0;
                     break;
