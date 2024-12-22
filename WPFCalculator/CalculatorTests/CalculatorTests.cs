@@ -118,7 +118,7 @@ namespace CalculatorTests
         [Fact]
         public void Exponent_ReturnsAWithExponentOfB()
         {
-            double a  = It.IsAny<double>();
+            double a = It.IsAny<double>();
             double b = It.IsAny<double>();
 
             var result = Calculator.Exponent(a, b);
